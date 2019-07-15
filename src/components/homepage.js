@@ -10,6 +10,7 @@ import TermInfo from './terminfo'
 import FAQ from './faq'
 import Eligibility from './eligibility'
 import ContactForm from './contactform'
+import LoanApp from './loanapp'
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -77,6 +78,7 @@ class Homepage extends React.Component {
               ref={this.threesteps}
             />
             <LoanCalculator />
+            <LoanApp />
             <InfoButtonContainer 
               info={this.activateMoreInfo}
               faq={this.activateFAQ}
