@@ -2,13 +2,12 @@ module.exports = {
   siteMetadata: {
     title: `Skills Fund`,
     description: `Skills Fund finances students to attend the best coding and data science programs around. We believe in 100% loan transparency, and have aligned all incentives around student success.`,
-    headline: `Partner financing page for Skills Fund and Make School`,
+    headline: `Partner financing page for Skills Fund and Metis`,
     author: `@Skills_Fund`,
     siteLanguage: `en`,
     logo: `src/images/skillsFund_logo.png`,
     favicon: `src/images/Favicon-SF.png`,
-    keywords: `coding loans, bootcamp loans, tuition loan, tuition financing, coding, web development, UX design, UI design coding bootcamp, bootcamp, full-time, part-time, student financing, student loans, loans, cosigner, underwriting, credit, credit score`,
-    googleAnalyticsId: ``
+    keywords: `coding loans, bootcamp loans, tuition loan, tuition financing, coding, web development, UX design, UI design coding bootcamp, bootcamp, full-time, part-time, student financing, student loans, loans, cosigner, underwriting, credit, credit score`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,6 +17,12 @@ module.exports = {
           trackingCode: "3871135",
           respectDNT: true,
           productionOnly: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-68312423-5",
       },
     },
     {

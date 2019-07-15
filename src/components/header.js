@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import makeSchool from "../images/make_school_logo.png"
+import schoolLogo from "../images/metis_logo.png"
 import skillsFund from "../images/skillsFund_logo.png"
 
 const Header = ({ siteTitle }) => (
@@ -9,7 +9,7 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div className="w-full flex justify-center items-center pt-1 px-2 lg:px-0"
+    <div className="w-full flex justify-center items-center py-8 px-2 lg:px-0 "
       // style={{
       //   margin: `0 auto`,
       //   width: `100%`,
@@ -20,15 +20,16 @@ const Header = ({ siteTitle }) => (
       // }}
     >
         <a
-          href="https://www.makeschool.com/"
+          href="https://www.thisismetis.com/"
           target="_blank"
           rel="noreferrer noopener"
         >
           <img
-            src={makeSchool} 
-            alt="Make School logo"
+            src={schoolLogo} 
+            alt="Metis logo"
             style={{
-              height: `60px`
+              height: `60px`,
+              marginRight: ``
             }} 
           />
         </a>
@@ -41,10 +42,14 @@ const Header = ({ siteTitle }) => (
             src={skillsFund} 
             alt="Skills Fund logo"
             style={{
-              height: `45px`
+              height: `45px`,
+              marginLeft: `4rem`
             }} 
           />
         </a>
+    </div>
+    <div className="flex justify-center items-center">
+      <h3 className="font-light mb-10">Metis tuition made easy</h3>
     </div>
   </header>
 )

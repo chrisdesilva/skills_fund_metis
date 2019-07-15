@@ -7,7 +7,7 @@ const LeadContent = props => (
         <div className="flex justify-center">
             <img className="w-auto" src={marching} alt="People marching and carrying flags" />
         </div>
-        <p>Make School leads you through a two-year path toward a Bachelor's degree using the same technologies, frameworks, and design processes used by tech companies. Make School partners with Skills Fund so more students like you can access their revolutionary program.</p>
+        <p>Metis accelerates data science learning for individuals, companies, and institutions through corporate training and accredited, immersive bootcamps. Metis partners with Skills Fund so more students like you can access their revolutionary program.</p>
     </div>
 )
 

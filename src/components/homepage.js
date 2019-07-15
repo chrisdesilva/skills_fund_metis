@@ -66,12 +66,12 @@ class Homepage extends React.Component {
       render(){
         return (
           <Layout>
-            <SEO title="Make School" />
+            <SEO title="Metis" />
             <Banner 
                 onClick={this.scrollToContent}  
             />
             <LeadContent 
-              schoolName="Make School"
+              schoolName="Metis"
             />
             <ThreeSteps 
               ref={this.threesteps}
