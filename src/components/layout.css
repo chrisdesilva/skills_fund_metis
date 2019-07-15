@@ -613,9 +613,6 @@ pre tt:after {
   content: "";
 }
 
-/* #email-373d1cf3-11e4-4798-be11-65ad5b5619a6 {
-  width: 50%;
-} */
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

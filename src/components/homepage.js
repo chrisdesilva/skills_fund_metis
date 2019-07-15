@@ -11,6 +11,7 @@ import FAQ from './faq'
 import Eligibility from './eligibility'
 import ContactForm from './contactform'
 import LoanApp from './loanapp'
+import LeadCaptureForm from './leadcaptureform'
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -22,10 +23,15 @@ class Homepage extends React.Component {
           contact: false
         }
         this.threesteps = React.createRef();
+        this.apply = React.createRef();
       }
     
       scrollToContent = () => {
         this.threesteps.current.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      scrollToApply = () => {
+        this.apply.current.scrollIntoView({ behavior: 'smooth' });
       }
     
       activateMoreInfo = () => {
@@ -74,11 +80,15 @@ class Homepage extends React.Component {
             <LeadContent 
               schoolName="Metis"
             />
-            <ThreeSteps 
+            <ThreeSteps
+              onClick={this.scrollToApply} 
               ref={this.threesteps}
             />
             <LoanCalculator />
-            <LoanApp />
+            <LoanApp 
+              ref={this.apply}
+            />
+            <LeadCaptureForm />
             <InfoButtonContainer 
               info={this.activateMoreInfo}
               faq={this.activateFAQ}

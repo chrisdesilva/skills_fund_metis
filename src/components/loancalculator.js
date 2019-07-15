@@ -62,7 +62,7 @@ class LoanCalculator extends React.Component {
                         <label className="text-xs text-center">Enter a loan amount:</label>
                         <input onChange={this.updateLoanAmount} className="rounded border-2 border-primary p-3 mb-5 text-primary text-center text-2xl" maxLength="6" placeholder="$10,000" />
                     </div>
-                    {this.state.min > this.state.loanAmount || this.state.loanAmount > this.state.max ? <p className="text-red-500 text-xs">Please enter a number between {this.state.min} and {this.state.max}</p> : <button className="bg-primary px-2 py-3 mb-2 rounded text-white" onClick={this.calculateMonthlyPayment}>Check payments</button>}
+                    {this.state.min > this.state.loanAmount || this.state.loanAmount > this.state.max ? <p className="text-red-500 text-xs">Please enter a number between {this.state.min} and {this.state.max}</p> : <button className="bg-primary px-2 py-3 mb-2 rounded text-white uppercase" onClick={this.calculateMonthlyPayment}>Calculate payments</button>}
                     <p className="m-0 text-center">Students may borrow from ${this.state.min} to ${this.state.max}</p>
                     <div className="shadow-xl rounded px-4 md:px-12 py-8 flex flex-col">
                         <h3 className="text-primary text-center font-normal">36-Month Fixed Rate</h3>

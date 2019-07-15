@@ -53,7 +53,7 @@ class ContactForm extends React.Component {
         return (
             <div className="border-2 border-gray-300 shadow-xl rounded-lg m-2 lg:m-10 p-8">
                 <h2 className="mt-4 text-center">Additional Questions</h2>
-                <p>We're here to help for every step of your journey. Please reach out to <a href="mailto:customertrust@skills.fund" className="text-primary">CustomerTrust@skills.fund</a>, check out our <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">Financing FAQs</a>, or browse the resources on <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">our blog</a>. Thank you!</p>
+                <p>We're here to help for every step of your journey. Whether you have questions around financing your education, or simply about your loan application, please submit the form below, check out our <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">Financing FAQs</a>, or browse the resources on <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">our blog</a>. Thank you!</p>
                 <form className="text-center" name="metis_contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
                     <input type="hidden" name="form-name" value="make_school_contact" />
                     <div className="w-full mb-8">

@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './button'
 
 const ThreeSteps = React.forwardRef((props, ref) => {
     return (
@@ -18,7 +19,13 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                 <div className="flex flex-col items-center mx-2 lg:w-1/2 px-12">
                     <p className="rounded-full h-10 w-10 flex items-center justify-center border border-secondary">3</p>
                     <h3 className="uppercase">apply for funding!</h3>
-                    <p>You'll be on your way to an exciting career in tech as part of Metis' powerful network.</p> 
+                    <p className="m-0">You'll be on your way to an exciting career in tech as part of Metis' powerful network.</p>
+                    <Button
+                        buttonClassName="uppercase bg-primary p-3 rounded shadow-lg text-white"
+                        divClassName="flex justify-center mt-5"
+                        text="apply now"
+                        onClick={props.onClick}
+                    /> 
                 </div>
             </div>
         </div>
