@@ -9,16 +9,7 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div className="w-full flex justify-center items-center py-8 px-2 lg:px-0 "
-      // style={{
-      //   margin: `0 auto`,
-      //   width: `100%`,
-      //   paddingTop: `1.45rem`,
-      //   display: `flex`,
-      //   justifyContent: `center`,
-      //   alignItems: `center`
-      // }}
-    >
+    <div className="w-full flex justify-center items-center py-8 px-2 lg:px-0 mt-8">
         <a
           href="https://www.thisismetis.com/"
           target="_blank"

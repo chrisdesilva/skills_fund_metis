@@ -34,10 +34,8 @@ class LoanCalculator extends React.Component {
         const borrowedAmount = this.state.loanAmount
         const totalLoan = borrowedAmount * (1 + this.state.origFee)
         const pv = totalLoan
-        let payment36 = Number((monthlyRate36 * pv) / (1 - (1 / Math.pow(1 + monthlyRate36, 36))))
-        let payment60 = Number((monthlyRate60 * pv) / (1 - (1 / Math.pow(1 + monthlyRate60, 60))))
-        payment36 = Number(payment36.toFixed(2))
-        payment60 = Number(payment60.toFixed(2))
+        let payment36 = Number((monthlyRate36 * pv) / (1 - (1 / Math.pow(1 + monthlyRate36, 36)))).toFixed(2)
+        let payment60 = Number((monthlyRate60 * pv) / (1 - (1 / Math.pow(1 + monthlyRate60, 60)))).toFixed(2)
         this.setState({ monthlyPayment1: payment36, monthlyPayment2: payment60, loanAmount: borrowedAmount })
         this.calculateInterest36()
         this.calculateInterest60()
@@ -60,7 +58,7 @@ class LoanCalculator extends React.Component {
                     <h3 className="uppercase text-center">calculate your payment</h3>
                     <div className="flex flex-col justify-center w-1/2 md:w-1/3">
                         <label className="text-xs text-center">Enter a loan amount:</label>
-                        <input onChange={this.updateLoanAmount} className="rounded border-2 border-primary p-3 mb-5 text-primary text-center text-2xl" maxLength="6" placeholder="$10,000" />
+                        <input type="number" onChange={this.updateLoanAmount} className="rounded border-2 border-primary p-3 mb-5 text-primary text-center text-2xl" maxLength="6" placeholder="$10,000" />
                     </div>
                     {this.state.min > this.state.loanAmount || this.state.loanAmount > this.state.max ? <p className="text-red-500 text-xs">Please enter a number between {this.state.min} and {this.state.max}</p> : <button className="bg-primary px-2 py-3 mb-2 rounded text-white uppercase" onClick={this.calculateMonthlyPayment}>Calculate payments</button>}
                     <p className="m-0 text-center">Students may borrow from ${this.state.min} to ${this.state.max}</p>

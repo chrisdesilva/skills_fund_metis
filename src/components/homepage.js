@@ -20,7 +20,8 @@ class Homepage extends React.Component {
           termInfo: true,
           faq: false,
           eligibility: false,
-          contact: false
+          contact: false,
+          lenderCode: 'SKMETA18'
         }
         this.threesteps = React.createRef();
         this.apply = React.createRef();
@@ -87,6 +88,7 @@ class Homepage extends React.Component {
             <LoanCalculator />
             <LoanApp 
               ref={this.apply}
+              lenderCode={this.state.lenderCode}
             />
             <LeadCaptureForm />
             <InfoButtonContainer 

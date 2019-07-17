@@ -3,6 +3,7 @@ import HubspotForm from 'react-hubspot-form'
 import marching from '../images/PeopleMarchColor.png'
 
 const LoanApp = React.forwardRef((props, ref) => {
+
     return (
         <div ref={ref} className="flex flex-col items-center justify-center py-8 mx-2 lg:mx-10 rounded shadow-xl">
             <h3 className="uppercase">apply for funding</h3>
@@ -12,6 +13,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             <HubspotForm
                 portalId='3871135'
                 formId='373d1cf3-11e4-4798-be11-65ad5b5619a6'
+                redirectUrl={`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=${props.lenderCode}`}
             />
             <div className="px-8 text-sm">
                 <p className="text-center mb-12">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
