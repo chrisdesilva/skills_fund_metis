@@ -60,12 +60,12 @@ class LoanCalculator extends React.Component {
                         <label className="text-xs text-center">Enter a loan amount:</label>
                         <input type="number" onChange={this.updateLoanAmount} className="rounded border-2 border-primary p-3 mb-5 text-primary text-center text-2xl" maxLength="6" placeholder="$10,000" />
                     </div>
-                    {this.state.min > this.state.loanAmount || this.state.loanAmount > this.state.max ? <p className="text-red-500 text-xs">Please enter a number between {this.state.min} and {this.state.max}</p> : <button className="bg-primary px-2 py-3 mb-2 rounded text-white uppercase" onClick={this.calculateMonthlyPayment}>Calculate payments</button>}
+                    {this.state.min > this.state.loanAmount || this.state.loanAmount > this.state.max ? <p className="text-red-500 text-xs">Please enter a number between {this.state.min} and {this.state.max}</p> : <button className="bg-primary px-2 py-3 mb-2 rounded-full text-white uppercase" onClick={this.calculateMonthlyPayment}>Calculate payments</button>}
                     <p className="m-0 text-center">Students may borrow from ${this.state.min} to ${this.state.max}</p>
                     <div className="shadow-xl rounded px-4 md:px-12 py-8 flex flex-col">
                         <h3 className="text-primary text-center font-normal">36-Month Fixed Rate</h3>
                         <p className="m-0 text-center">{this.state.rate1}% Interest Rate, {this.state.apr1}% APR*</p>
-                        <p className="text-xs text-center">Make interest-only payments while in program & two months after, then begin full payments.</p>
+                        <p className="text-xs text-center">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
                         <p className="font-bold text-center">Payments:</p>
                         <div className="flex mb-4 text-center">
                             <div className="border-secondary border-b w-1/2 mr-5">
@@ -93,7 +93,7 @@ class LoanCalculator extends React.Component {
                         </div>
                         <h3 className="text-primary text-center mt-12 font-normal">60-Month Fixed Rate</h3>
                         <p className="m-0 text-center">{this.state.rate2}% Interest Rate, {this.state.apr2}% APR*</p>
-                        <p className="text-xs text-center">Make interest-only payments while in program & two months after, then begin full payments.</p>
+                        <p className="text-xs text-center">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
                         <p className="font-bold text-center">Payments:</p>
                         <div className="flex mb-4 text-center">
                             <div className="border-secondary border-b w-1/2 mr-5">
