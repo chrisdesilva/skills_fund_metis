@@ -6,7 +6,7 @@ const LoanApp = React.forwardRef((props, ref) => {
 
     return (
         <div ref={ref} className="flex flex-col items-center justify-center py-8 mx-2 lg:mx-10 rounded shadow-xl">
-            <h3>Apply for Funding</h3>
+            <h3 className="text-center">Apply for Metis Tuition and Cost of Living Funding</h3>
             <div className="flex justify-center">
                 <img className="w-auto" src={marching} alt="People marching and carrying flags" />
             </div>

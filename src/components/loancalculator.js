@@ -6,7 +6,7 @@ class LoanCalculator extends React.Component {
         defaultLoanAmount: 10000,
         loanAmount: 10000,
         min: 2000,
-        max: 15500,
+        max: 25500,
         origFee: 0.04,
         k: 5,
         term1: 36,
@@ -62,61 +62,68 @@ class LoanCalculator extends React.Component {
                     </div>
                     {this.state.min > this.state.loanAmount || this.state.loanAmount > this.state.max ? <p className="text-red-500 text-xs">Please enter a number between {this.state.min} and {this.state.max}</p> : <button className="bg-primary px-2 py-3 mb-2 rounded-full text-white uppercase" onClick={this.calculateMonthlyPayment}>Calculate payments</button>}
                     <p className="m-0 text-center">Students may borrow from ${this.state.min} to ${this.state.max}</p>
-                    <div className="shadow-xl rounded px-4 md:px-12 py-8 flex flex-col">
-                        <h3 className="text-primary text-center font-normal">36-Month Fixed Rate</h3>
-                        <p className="m-0 text-center">{this.state.rate1}% Interest Rate, {this.state.apr1}% APR*</p>
-                        <p className="text-xs text-center">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
-                        <p className="font-bold text-center">Payments:</p>
-                        <div className="flex mb-4 text-center">
-                            <div className="border-secondary border-b w-1/2 mr-5">
-                                Interest-Only Period
+                    <p className="text-xs text-center hidden lg:inline">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
+                    <div className="shadow-xl rounded px-4 md:px-12 py-8 flex flex-col lg:flex-row">
+                        <div className="flex flex-col mb-8 lg:mb-0 lg:mr-12">
+                            <h3 className="text-primary text-center font-normal">Option 1</h3>
+                            <h4 className="text-primary text-center font-normal">36-Month Fixed Rate Loan</h4>
+                            <p className="m-0 text-center">{this.state.rate1}% Interest Rate, {this.state.apr1}% APR*</p>
+                            <p className="text-xs text-center lg:hidden">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
+                            <p className="font-bold text-center my-4">Payments:</p>
+                            <div className="flex mb-4 text-center">
+                                <div className="border-secondary border-b w-1/2 mx-5">
+                                    Interest-Only Period
+                                </div>
+                                <div className="border-secondary border-b w-1/2 mx-5">
+                                    Full Payment Period
+                                </div>
                             </div>
-                            <div className="border-secondary border-b w-1/2 ml-5">
-                                Full Payment Period
+                            <div className="flex text-center">
+                                <div className="w-1/2">
+                                    {this.state.interestPayment1 ? <p className="m-0 text-secondary text-2xl">${this.state.interestPayment1}</p>: <p className="m-0 text-secondary text-2xl">$77.91</p>}
+                                </div>
+                                <div className="w-1/2">
+                                    {this.state.monthlyPayment1 ? <p className="m-0 text-secondary text-2xl">${this.state.monthlyPayment1}</p>: <p className="m-0 text-secondary text-2xl">$330.67</p>}
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex text-center">
-                            <div className="w-1/2">
-                                {this.state.interestPayment1 ? <p className="m-0 text-secondary text-2xl">${this.state.interestPayment1}</p>: <p>--</p>}
-                            </div>
-                            <div className="w-1/2">
-                                {this.state.monthlyPayment1 ? <p className="m-0 text-secondary text-2xl">${this.state.monthlyPayment1}</p>: <p>--</p>}
-                            </div>
-                        </div>
-                        <div className="flex text-center text-xs">
-                            <div className="w-1/2">
-                                per month
-                            </div>
-                            <div className="w-1/2">
-                                per month
-                            </div>
-                        </div>
-                        <h3 className="text-primary text-center mt-12 font-normal">60-Month Fixed Rate</h3>
-                        <p className="m-0 text-center">{this.state.rate2}% Interest Rate, {this.state.apr2}% APR*</p>
-                        <p className="text-xs text-center">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
-                        <p className="font-bold text-center">Payments:</p>
-                        <div className="flex mb-4 text-center">
-                            <div className="border-secondary border-b w-1/2 mr-5">
-                                Interest-Only Period
-                            </div>
-                            <div className="border-secondary border-b w-1/2 ml-5">
-                                Full Payment Period
+                            <div className="flex text-center text-xs">
+                                <div className="w-1/2">
+                                    per month
+                                </div>
+                                <div className="w-1/2">
+                                    per month
+                                </div>
                             </div>
                         </div>
-                        <div className="flex text-center">
-                            <div className="w-1/2">
-                                {this.state.interestPayment2 ? <p className="m-0 text-secondary text-2xl">${this.state.interestPayment2}</p>: <p>--</p>}
+                        <div className="flex flex-col lg:ml-12">
+                            <h3 className="text-primary text-center lg:mt-0 font-normal">Option 2</h3>
+                            <h4 className="text-primary text-center lg:mt-0 font-normal">60-Month Fixed Rate Loan</h4>
+                            <p className="m-0 text-center">{this.state.rate2}% Interest Rate, {this.state.apr2}% APR*</p>
+                            <p className="text-xs text-center lg:hidden">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
+                            <p className="font-bold text-center my-4">Payments:</p>
+                            <div className="flex mb-4 text-center">
+                                <div className="border-secondary border-b w-1/2 mx-5">
+                                    Interest-Only Period
+                                </div>
+                                <div className="border-secondary border-b w-1/2 mx-5">
+                                    Full Payment Period
+                                </div>
                             </div>
-                            <div className="w-1/2">
-                                {this.state.monthlyPayment2 ? <p className="m-0 text-secondary text-2xl">${this.state.monthlyPayment2}</p>: <p>--</p>}
+                            <div className="flex text-center">
+                                <div className="w-1/2">
+                                    {this.state.interestPayment2 ? <p className="m-0 text-secondary text-2xl">${this.state.interestPayment2}</p>: <p className="m-0 text-secondary text-2xl">$95.25</p>}
+                                </div>
+                                <div className="w-1/2">
+                                    {this.state.monthlyPayment2 ? <p className="m-0 text-secondary text-2xl">${this.state.monthlyPayment2}</p>: <p className="m-0 text-secondary text-2xl">226.07</p>}
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex text-center text-xs">
-                            <div className="w-1/2">
-                                per month
-                            </div>
-                            <div className="w-1/2">
-                                per month
+                            <div className="flex text-center text-xs">
+                                <div className="w-1/2">
+                                    per month
+                                </div>
+                                <div className="w-1/2">
+                                    per month
+                                </div>
                             </div>
                         </div>
                     </div>

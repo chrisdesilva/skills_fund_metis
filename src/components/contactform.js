@@ -76,7 +76,12 @@ class ContactForm extends React.Component {
                             <option value="school-representative">School Representative</option>
                             <option value="other">Other</option>
                         </select>
-                            {this.state.identity === "other" && <input onChange={this.handleChange} name="otherDescription" value={this.state.otherDescription} className="mt-3 shadow appearance-none border-2 border-primary w-1/3 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Other description (if applicable)"/>}
+                            {this.state.identity === "other" &&
+                                <div className="w-full mt-2 flex flex-col items-center">
+                                    <label className="block text-gray-700 text-sm font-bold" htmlFor="identity">Other Description (if applicable)</label> 
+                                    <input onChange={this.handleChange} name="otherDescription" value={this.state.otherDescription} className="mt-3 shadow appearance-none border-2 border-primary md:w-1/3 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Other description (if applicable)"/>
+                                </div>
+                            }
                     </div>
                     <div className="w-full mb-8">
                         <label className="block text-gray-700 text-sm font-bold" htmlFor="comments">Question and/or Comment</label>

@@ -9,9 +9,9 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                 <div className="flex flex-col items-center mx-2 lg:w-1/2 px-12">
                     <p className="rounded-full h-10 w-10 flex items-center justify-center border border-secondary">1</p>
                     <h3 className="uppercase">explore your options</h3>
-                    <p>Use the loan calculator below to know exactly what you'll pay <strong>before</strong> you apply.</p>
+                    <p>Use the loan calculator below to know exactly what you'll pay <strong>before</strong> you apply. You can borrow up to $15,500 for tuition and $10,000 for cost of living.</p>
                 </div>
-                <div className="flex flex-col items-center mx-2 lg:w-1/3">
+                <div className="flex flex-col items-center mx-2 lg:w-1/3 px-12">
                     <p className="rounded-full h-10 w-10 flex items-center justify-center border border-secondary">2</p>
                     <h3 className="uppercase">select your campus</h3>
                     <p>Choose from one of five Metis locations including Chicago, Seattle, New York City, San Francisco, and Singapore.</p>
