@@ -56,6 +56,14 @@
   font-family: 'Work Sans', sans-serif;
 }
 
+.loanAppSubmitBtn {
+  background-color: rgb(246, 134, 14);
+  border-radius: 9999px;
+  padding: .75rem;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+}
+
 /* END APPLY NOW FORM STYLING */
 
 html {

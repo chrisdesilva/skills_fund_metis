@@ -40,7 +40,7 @@ const Header = ({ siteTitle }) => (
         </a>
     </div>
     <div className="flex justify-center items-center">
-      <h3 className="font-light mb-10">Metis tuition made easy</h3>
+      <h3 className="font-light mb-1">Metis tuition made easy</h3>
     </div>
   </header>
 )
