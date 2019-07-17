@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,700&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwind/base";
+@import "tailwind/components";
+@import "tailwind/utilities";
 
 html {
   font-family: 'Work Sans', sans-serif;

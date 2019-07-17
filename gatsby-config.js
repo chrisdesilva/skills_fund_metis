@@ -20,6 +20,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-crazyegg`,
+      options: {
+        accountNumber: "00769926"
+      }
+    },
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-68312423-5",
