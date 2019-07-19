@@ -76,7 +76,8 @@ class Homepage extends React.Component {
           <Layout>
             <SEO title="Metis" />
             <Banner 
-                onClick={this.scrollToContent}  
+                howItWorksOnClick={this.scrollToContent}  
+                applyNowOnClick={this.scrollToApply}  
             />
             <LeadContent 
               schoolName="Metis"
