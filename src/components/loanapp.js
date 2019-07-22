@@ -6,11 +6,11 @@ import marching from '../images/PeopleMarchColor.png'
 const LoanApp = React.forwardRef((props, ref) => {
 
     const trackGoogleAnalyticsEvent = () => {
-        ReactGA.outboundLink({
-            label: 'Clicked Apply Now on submit form'
-        }, function () {
-            console.log('redirect to loan app')
-        })
+        ReactGA.event({
+            category: 'Apply Now Button',
+            action: 'click',
+            label: 'form submission'
+          })
     }
 
     return (

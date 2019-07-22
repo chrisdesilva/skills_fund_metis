@@ -40,7 +40,8 @@ class Homepage extends React.Component {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
         ReactGA.event({
           category: 'Apply Now Button',
-          action: 'click in banner'
+          action: 'click',
+          label: 'banner'
         })
       }
 
@@ -48,7 +49,8 @@ class Homepage extends React.Component {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
         ReactGA.event({
           category: 'Apply Now Button',
-          action: 'click in 3 steps'
+          action: 'click',
+          label: 'getting started'
         })
       }
     
