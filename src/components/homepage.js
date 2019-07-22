@@ -31,24 +31,24 @@ class Homepage extends React.Component {
       scrollToContent = () => {
         this.threesteps.current.scrollIntoView({ behavior: 'smooth' });
         ReactGA.event({
-          category: 'How It Works',
-          action: 'Clicked How It Works in banner'
+          category: 'How It Works Button',
+          action: 'click'
         })
       }
 
       scrollToApply = () => {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
         ReactGA.event({
-          category: 'Apply Now',
-          action: 'Clicked Apply Now in banner'
+          category: 'Apply Now Button',
+          action: 'click in banner'
         })
       }
 
       scrollToApply2 = () => {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
         ReactGA.event({
-          category: 'Apply Now',
-          action: 'Clicked Apply Now in Three Steps section'
+          category: 'Apply Now Button',
+          action: 'click in 3 steps'
         })
       }
     
