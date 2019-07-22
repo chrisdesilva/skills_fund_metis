@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactGA from 'react-ga'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
@@ -29,10 +30,26 @@ class Homepage extends React.Component {
     
       scrollToContent = () => {
         this.threesteps.current.scrollIntoView({ behavior: 'smooth' });
+        ReactGA.event({
+          category: 'How It Works',
+          action: 'Clicked How It Works in banner'
+        })
       }
 
       scrollToApply = () => {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
+        ReactGA.event({
+          category: 'Apply Now',
+          action: 'Clicked Apply Now in banner'
+        })
+      }
+
+      scrollToApply2 = () => {
+        this.apply.current.scrollIntoView({ behavior: 'smooth' });
+        ReactGA.event({
+          category: 'Apply Now',
+          action: 'Clicked Apply Now in Three Steps section'
+        })
       }
     
       activateMoreInfo = () => {
@@ -83,7 +100,7 @@ class Homepage extends React.Component {
               schoolName="Metis"
             />
             <ThreeSteps
-              onClick={this.scrollToApply} 
+              onClick={this.scrollToApply2} 
               ref={this.threesteps}
             />
             <LoanCalculator />

@@ -1,5 +1,16 @@
 import React from "react"
-import Homepage from "../components/homepage";
+import Homepage from "../components/homepage"
+import ReactGA from 'react-ga'
+
+const trackingId = "UA-68312423-5"
+ReactGA.initialize(trackingId, {
+  debug: true,
+  titleCase: false,
+  gaOptions: {
+    siteSpeedSampleRate: 100
+  }
+})
+ReactGA.pageview(window.location.pathname + window.location.search)
 
 const IndexPage = () => (
   <div>
