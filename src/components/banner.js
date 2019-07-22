@@ -4,7 +4,7 @@ import Button from "./button"
 
 const Banner = props => (
     <div>
-        <div className="bg-cover text-white flex flex-col justify-center items-center relative z-0 pb-4 h-auto" style={{backgroundImage: `url(${banner})`}} id="banner">
+        <div className="bg-cover text-white flex flex-col justify-center items-center relative z-0 pb-4 h-auto" style={{backgroundImage: `url(${banner})`, height: `25rem`}} id="banner">
 
             <h2 className="text-3xl lg:text-4xl font-normal text-center mb-5 mt-24">Experience Immersive Data Science Instruction at Metis</h2>
             <h3 className="text-base lg:text-xl font-light text-center">Know exactly what you'll pay with Skills Fund</h3>
