@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* BEGIN APPLY NOW FORM STYLING */
+/* ----------BEGIN HUBSPOT APPLY NOW FORM STYLING----------- */
 #hsForm_373d1cf3-11e4-4798-be11-65ad5b5619a6 {
   display: flex;
   flex-direction: column;
@@ -48,23 +48,31 @@
   margin-bottom: 1rem;
 }
 
+/* SEND ME THE GUIDE BUTTON */
 .hs-button {
   background-color: #9d1996;
   border-radius: 9999px;
   padding: .75rem;
   color: white;
   font-family: 'Work Sans', sans-serif;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
 }
 
+/* APPLY NOW BUTTON */
 .loanAppSubmitBtn {
   background-color: rgb(246, 134, 14);
   border-radius: 9999px;
   padding: .75rem;
   color: white;
   font-family: 'Work Sans', sans-serif;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)
 }
 
-/* END APPLY NOW FORM STYLING */
+.loanAppSubmitBtn:hover {
+  cursor: pointer;
+}
+
+/* -----------END APPLY NOW FORM STYLING------------ */
 
 html {
   font-family: 'Work Sans', sans-serif;

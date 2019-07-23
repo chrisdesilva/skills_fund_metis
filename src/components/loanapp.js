@@ -5,13 +5,14 @@ import marching from '../images/PeopleMarchColor.png'
 
 const LoanApp = React.forwardRef((props, ref) => {
 
-    const trackGoogleAnalyticsEvent = () => {
-        ReactGA.event({
-            category: 'Apply Now Button',
-            action: 'click',
-            label: 'form submission'
-          })
-    }
+    // const trackGoogleAnalyticsEvent = () => {
+    //     ReactGA.event({
+    //         category: 'Apply Now Button',
+    //         action: 'click',
+    //         label: 'form submission'
+    //       })
+    //     console.log("clicked form submit button")
+    // }
 
     return (
         <div ref={ref} className="flex flex-col items-center justify-center py-8 mx-2 lg:mx-10 rounded shadow-xl">
@@ -19,14 +20,13 @@ const LoanApp = React.forwardRef((props, ref) => {
             <div className="flex justify-center">
                 <img className="w-auto" src={marching} alt="People marching and carrying flags" />
             </div>
-            <HubspotForm
-                portalId='3871135'
-                formId='373d1cf3-11e4-4798-be11-65ad5b5619a6'
-                redirectUrl={`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=${props.lenderCode}`}
-                submitButtonClass='loanAppSubmitBtn'
-                cssClass='program-apply'
-                onFormSubmit={trackGoogleAnalyticsEvent}
-            />
+                <HubspotForm
+                    portalId='3871135'
+                    formId='373d1cf3-11e4-4798-be11-65ad5b5619a6'
+                    redirectUrl={`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=${props.lenderCode}`}
+                    submitButtonClass='loanAppSubmitBtn'
+                    cssClass='program-apply'
+                />
             <div className="px-8 text-sm">
                 <p className="text-center mb-12">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
                 <p><strong>Before you begin, please read these important notes:</strong></p>

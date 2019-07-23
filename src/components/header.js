@@ -9,35 +9,31 @@ const Header = ({ siteTitle }) => (
       marginBottom: `1.45rem`,
     }}
   >
-    <div className="w-full flex justify-center items-center py-8 px-2 lg:px-0 mt-8">
-        <a
-          href="https://www.thisismetis.com/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <img
-            src={schoolLogo} 
-            alt="Metis logo"
-            style={{
-              height: `60px`,
-              marginRight: ``
-            }} 
-          />
-        </a>
-        <a
-          href="https://skills.fund/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <img
-            src={skillsFund} 
-            alt="Skills Fund logo"
-            style={{
-              height: `45px`,
-              marginLeft: `4rem`
-            }} 
-          />
-        </a>
+    <div className="flex justify-center">
+      <div className="w-full md:w-1/2 lg:w-1/3 flex justify-around items-center py-8 px-2 lg:px-0 mt-8">
+          <a
+            href="https://www.thisismetis.com/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <img
+              src={schoolLogo} 
+              alt="Metis logo"
+              className="h-12"
+            />
+          </a>
+          <a
+            href="https://skills.fund/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <img
+              src={skillsFund} 
+              alt="Skills Fund logo"
+              className="h-10"
+            />
+          </a>
+      </div>
     </div>
     <div className="flex justify-center items-center">
       <h3 className="font-light mb-1">Metis tuition made easy</h3>
