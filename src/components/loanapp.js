@@ -11,8 +11,6 @@ const LoanApp = React.forwardRef((props, ref) => {
         setEmail(e.target.value)
     }
 
-
-
     const redirectLoanApp = e => {
         window.open("https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKMETA19", "_blank", "noopener noreferrer")
     };
@@ -45,11 +43,13 @@ const LoanApp = React.forwardRef((props, ref) => {
             <form className="metis_apply_now_GA program-apply flex flex-col items-center" method="post" action="https://forms.hubspot.com/uploads/form/v2/3871135/0abd7292-985c-43fe-8480-0759a6cba99e" onSubmit={trackGoogleAnalyticsEvent}>
                 <label htmlFor="email">Email address</label>
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
-                <input type="hidden" name="Stakeholder Type" value="Student"/>
-                <input type="hidden" name="Program Name" value="Data Science Bootcamp"/>
-                <input type="hidden" name="School" value="Metis"/>
-                <input type="hidden" name="Student Loan Application Status" value="BLA Click Email Submitted"/>
-                <input type="hidden" name="Clicked Begin Loan Application BLA" value="BLA Click"/>
+                <div className="invisible">
+                    <input type="text" name="Stakeholder Type" value="Student"/>
+                    <input type="text" name="Program Name" value="Data Science Bootcamp"/>
+                    <input type="text" name="School" value="Metis"/>
+                    <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted"/>
+                    <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click"/>
+                </div>
                 <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>
                 <p className="mt-3 text-xs italic">Please note: clicking Apply Now will open your loan application in a new tab</p>
             </form>
