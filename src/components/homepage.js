@@ -22,7 +22,7 @@ class Homepage extends React.Component {
           faq: false,
           eligibility: false,
           contact: false,
-          lenderCode: 'SKMETA18'
+          lenderCode: ''
         }
         this.threesteps = React.createRef();
         this.apply = React.createRef();
@@ -115,7 +115,7 @@ class Homepage extends React.Component {
               info={this.activateMoreInfo}
               faq={this.activateFAQ}
               eligibility={this.activateEligibility}
-              contact={this.activateContact}
+              contact={this.activateContact} 
             />
             {this.state.termInfo && <TermInfo />}
             {this.state.faq && <FAQ />}

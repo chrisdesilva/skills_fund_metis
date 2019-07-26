@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HubspotForm from 'react-hubspot-form'
 import ReactGA from 'react-ga'
 import marching from '../images/PeopleMarchColor.png'
 
 const LoanApp = React.forwardRef((props, ref) => {
+
+    // const [email, setEmail] = useState('')
+
+    // const handleChange = e => {
+    //     setEmail(e.target.value)
+    // }
+
+    // const redirectLoanApp = () => {
+    //     window.open("https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKMETA18", "_blank", "noopener")
+    // }
 
     const trackGoogleAnalyticsEvent = () => {
         ReactGA.event({
@@ -11,24 +21,33 @@ const LoanApp = React.forwardRef((props, ref) => {
             action: 'click',
             label: 'clicked on loan app input field or button'
           })
-          console.log("Clicked loan app")
+        // redirectLoanApp()
     }
 
+    
     return (
         <div ref={ref} className="flex flex-col items-center justify-center py-8 mx-2 lg:mx-10 rounded shadow-xl">
             <h3 className="text-center">Apply for Metis Tuition and Cost of Living Funding</h3>
             <div className="flex justify-center">
-                <img className="w-auto" src={marching} alt="People marching and carrying flags" />
+                <img onClick={trackGoogleAnalyticsEvent} className="w-auto" src={marching} alt="People marching and carrying flags" />
             </div>
             <div onClick={trackGoogleAnalyticsEvent}>
                 <HubspotForm
                     portalId='3871135'
                     formId='373d1cf3-11e4-4798-be11-65ad5b5619a6'
-                    redirectUrl={`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=${props.lenderCode}`}
+                    redirectUrl={`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKMETA19`}
                     submitButtonClass='loanAppSubmitBtn'
                     cssClass='program-apply'
                 />
             </div>
+            {/* <form className="metis_apply_now_GA program-apply flex flex-col items-center">
+                <label htmlFor="email">Email address</label>
+                <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
+                <div className="inline-block" onClick={trackGoogleAnalyticsEvent}>
+                    <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>
+                </div>
+                <p className="mt-3 text-xs italic">Please note: clicking Apply Now will redirect this page to your application</p>
+            </form> */}
             <div className="px-8 text-sm">
                 <p className="text-center mb-12">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
                 <p><strong>Before you begin, please read these important notes:</strong></p>
