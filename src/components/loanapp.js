@@ -43,7 +43,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             <form className="metis_apply_now_GA program-apply flex flex-col items-center" method="post" action="https://forms.hubspot.com/uploads/form/v2/3871135/0abd7292-985c-43fe-8480-0759a6cba99e" onSubmit={trackGoogleAnalyticsEvent}>
                 <label htmlFor="email">Email address</label>
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
-                <div className="invisible">
+                <div className="hidden">
                     <input type="text" name="Stakeholder Type" value="Student"/>
                     <input type="text" name="Program Name" value="Data Science Bootcamp"/>
                     <input type="text" name="School" value="Metis"/>
