@@ -55,7 +55,7 @@ class ContactForm extends React.Component {
                 <h2 className="mt-4 text-center">Additional Questions</h2>
                 <p>We're here to help for every step of your journey. Whether you have questions around financing your education, or simply about your loan application, please submit the form below, check out our <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">Financing FAQs</a>, or browse the resources on <a href="https://skills.fund/frequently-asked-questions" target="_blank" rel="noreferrer noopener" className="text-primary">our blog</a>. Thank you!</p>
                 <form className="text-center" name="metis_contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={this.handleSubmit}>
-                    <input type="hidden" name="form-name" value="make_school_contact" />
+                    <input type="hidden" name="form-name" value="metis_contact" />
                     <div className="w-full mb-8">
                         <label className="block text-gray-700 text-sm font-bold" htmlFor="name">Name</label>
                         <input onChange={this.handleChange} value={this.state.name} name="name" className="shadow appearance-none border md:w-1/3 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Your name" required/>

@@ -14,7 +14,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-hubspot",
       options: {
-          trackingCode: "3871135",
+          trackingCode: "3871135", 
           respectDNT: true,
           productionOnly: false,
       },
@@ -36,7 +36,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/images/`,
       },
     },
     `gatsby-transformer-sharp`,

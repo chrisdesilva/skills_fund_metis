@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import HubspotForm from 'react-hubspot-form'
 import ReactGA from 'react-ga'
 import marching from '../images/PeopleMarchColor.png'
 
@@ -20,8 +19,40 @@ const LoanApp = React.forwardRef((props, ref) => {
                 category: 'Apply Now Button',
                 action: 'click',
                 label: 'submitted loan application'
-              })
-                redirectLoanApp()
+            })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        var url = 'https://api.hsforms.com/submissions/v3/integration/submit/3871135/0abd7292-985c-43fe-8480-0759a6cba99e'
+        
+        // Example request JSON:
+        var data = {
+        "fields": [
+            {
+            "name": "email",
+            "value": {email}
+            }
+        ],
+        "context": {
+            "hutk": ':hutk', // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
+            "pageUri": "thisismetis.skills.fund",
+            "pageName": "Metis | Skills Fund"
+        }
+        }
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json())
+        .then(response => alert('Success: ', JSON.stringify(response)))
+        .catch(error => alert('Error: ', error))
+        
+        trackGoogleAnalyticsEvent()
+        redirectLoanApp()
     }
 
     
@@ -31,16 +62,7 @@ const LoanApp = React.forwardRef((props, ref) => {
             <div className="flex justify-center">
                 <img className="w-auto" src={marching} alt="People marching and carrying flags" />
             </div>
-            {/* <div onClick={trackGoogleAnalyticsEvent}>
-                <HubspotForm
-                    portalId='3871135'
-                    formId='373d1cf3-11e4-4798-be11-65ad5b5619a6'
-                    redirectUrl={`https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKMETA19`}
-                    submitButtonClass='loanAppSubmitBtn'
-                    cssClass='program-apply'
-                />
-            </div> */}
-            <form className="metis_apply_now_GA program-apply flex flex-col items-center" method="post" action="https://forms.hubspot.com/uploads/form/v2/3871135/0abd7292-985c-43fe-8480-0759a6cba99e" onSubmit={trackGoogleAnalyticsEvent}>
+            <form className="metis_apply_now_GA program-apply flex flex-col items-center" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email address</label>
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 <div className="hidden">
