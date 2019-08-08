@@ -48,8 +48,8 @@ const LoanApp = React.forwardRef((props, ref) => {
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json())
-        .then(response => alert('Success: ', JSON.stringify(response)))
-        .catch(error => alert('Error: ', error))
+        .then(response => console.log('success', response))
+        .catch(error => console.log('error: ', error))
         
         trackGoogleAnalyticsEvent()
         redirectLoanApp()
@@ -66,7 +66,7 @@ const LoanApp = React.forwardRef((props, ref) => {
                 <label htmlFor="email">Email address</label>
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 <div className="hidden">
-                    <input type="text" name="Stakeholder Type" value="Student"/>
+                    <input readOnly type="text" name="Stakeholder Type" value="Student"/>
                     <input type="text" name="Program Name" value="Data Science Bootcamp"/>
                     <input type="text" name="School" value="Metis"/>
                     <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted"/>
