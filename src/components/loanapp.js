@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import marching from '../images/PeopleMarchColor.png'
 
 const LoanApp = React.forwardRef((props, ref) => {
 
     const [email, setEmail] = useState('')
+    const [IP, setIP] = useState('')
 
     const handleChange = e => {
         setEmail(e.target.value)
     }
 
+    // lender code can be found in loan parameters
     const redirectLoanApp = e => {
         window.open("https://sf.privateloan.studentloan.org/external/LoanApplication.do?lenderCode=SKMETA19", "_blank", "noopener noreferrer")
     };
@@ -22,22 +24,40 @@ const LoanApp = React.forwardRef((props, ref) => {
             })
     }
 
+    async function fetchIP() {
+        const res = await fetch("https://ip.nf/me.json")
+        res
+            .json()
+            .then(res => setIP(res.ip.ip))
+            .catch(err => console.log(err))
+    }
+
+    useEffect(() => {
+        fetchIP()
+    })
+
     const handleSubmit = e => {
         e.preventDefault();
         var url = 'https://api.hsforms.com/submissions/v3/integration/submit/3871135/0abd7292-985c-43fe-8480-0759a6cba99e'
-        
-        // Example request JSON:
+        const hsCookie = document.cookie.split(';').reduce((cookies, cookie) => {
+            const [ name, value ] = cookie.split('=').map(c => c.trim());
+            cookies[name] = value;
+            return cookies;
+          }, {});
+          console.log(hsCookie)
+
         var data = {
         "fields": [
             {
             "name": "email",
-            "value": {email}
+            "value": `${email}`
             }
         ],
         "context": {
-            "hutk": ':hutk', // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
+            "hutk": hsCookie.hubspotutk, // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
             "pageUri": "thisismetis.skills.fund",
-            "pageName": "Metis | Skills Fund"
+            "pageName": "Metis | Skills Fund",
+            "ipAddress": `${IP}`
         }
         }
 
@@ -67,10 +87,10 @@ const LoanApp = React.forwardRef((props, ref) => {
                 <input className="applyNowInput" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />
                 <div className="hidden">
                     <input readOnly type="text" name="Stakeholder Type" value="Student"/>
-                    <input type="text" name="Program Name" value="Data Science Bootcamp"/>
-                    <input type="text" name="School" value="Metis"/>
-                    <input type="text" name="Student Loan Application Status" value="BLA Click Email Submitted"/>
-                    <input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click"/>
+                    <input readOnly type="text" name="Program Name" value="Data Science Bootcamp"/>
+                    <input readOnly type="text" name="School" value="Metis"/>
+                    <input readOnly type="text" name="Student Loan Application Status" value="BLA Click Email Submitted"/>
+                    <input readOnly type="text" name="Clicked Begin Loan Application BLA" value="BLA Click"/>
                 </div>
                 <input className="w-40" value="APPLY NOW" id="loanAppSubmitBtn" type="submit"/>
                 <p className="mt-3 text-xs italic">Please note: clicking Apply Now will open your loan application in a new tab</p>
