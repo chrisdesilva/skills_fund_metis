@@ -51,7 +51,27 @@ const LoanApp = React.forwardRef((props, ref) => {
             {
             "name": "email",
             "value": `${email}`
-            }
+            },
+            {
+            "name": "stakeholder_type",
+            "value": "Student"
+            },
+            {
+            "name": "program_name",
+            "value": "Data Science Bootcamp"
+            },
+            {
+            "name": "school",
+            "value": "Metis"
+            },
+            {
+            "name": "student_loan_application_status",
+            "value": "BLA Click Email Submitted"
+            },
+            {
+            "name": "clicked_begin_loan_application_bla",
+            "value": "BLA Click"
+            },
         ],
         "context": {
             "hutk": hsCookie.hubspotutk, // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
