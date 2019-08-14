@@ -1,6 +1,7 @@
 import React from 'react'
 import Homepage from '../components/homepage'
 import ReactGA from 'react-ga'
+import ReactPixel from 'react-facebook-pixel'
 
 const trackingId = "UA-68312423-5"
 ReactGA.initialize(trackingId, {
@@ -14,7 +15,6 @@ ReactGA.initialize(trackingId, {
 class IndexPage extends React.Component {
 
   componentDidMount() {
-    const ReactPixel =  require('react-facebook-pixel');
     ReactPixel.init('928181257515785');
   }
 
