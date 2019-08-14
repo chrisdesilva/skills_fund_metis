@@ -1,6 +1,6 @@
 import React from 'react'
 import HubspotForm from 'react-hubspot-form'
-import ebook from '../images/ebook.png'
+import ebook from '../images/ebook.jpg'
 
 const LeadCaptureForm = () => {
     return (
