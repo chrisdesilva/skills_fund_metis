@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
+import ReactPixel from 'react-facebook-pixel'
 import marching from '../images/PeopleMarchColor.png'
 
 const LoanApp = React.forwardRef((props, ref) => {
@@ -24,6 +25,10 @@ const LoanApp = React.forwardRef((props, ref) => {
             })
     }
 
+    const trackFacebookPixel = () => {
+        ReactPixel.track('InitiateCheckout')
+    }
+
     async function fetchIP() {
         const res = await fetch("https://ip.nf/me.json")
         res
@@ -44,8 +49,6 @@ const LoanApp = React.forwardRef((props, ref) => {
             cookies[name] = value;
             return cookies;
           }, {});
-          console.log(hsCookie)
-
         var data = {
         "fields": [
             {
@@ -92,6 +95,7 @@ const LoanApp = React.forwardRef((props, ref) => {
         .catch(error => console.log('error: ', error))
         
         trackGoogleAnalyticsEvent()
+        trackFacebookPixel()
         redirectLoanApp()
     }
 

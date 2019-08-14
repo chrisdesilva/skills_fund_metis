@@ -1,10 +1,17 @@
 import React from 'react'
 import Homepage from '../components/homepage'
 import ReactGA from 'react-ga'
+import ReactPixel from 'react-facebook-pixel'
+
+const options= {
+  autoConfig: true,
+  debug: false
+}
+ReactPixel.init('928181257515785', options)
 
 const trackingId = "UA-68312423-5"
 ReactGA.initialize(trackingId, {
-  debug: true,
+  debug: false,
   titleCase: false,
   gaOptions: {
     siteSpeedSampleRate: 100
