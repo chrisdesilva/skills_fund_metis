@@ -26,7 +26,10 @@ const LoanApp = React.forwardRef((props, ref) => {
     }
 
     const trackFacebookPixel = () => {
-        ReactPixel.track('InitiateCheckout')
+        ReactPixel.track('InitiateCheckout', {
+            value: 7200.00,
+            currency: 'USD'
+        })
     }
 
     async function fetchIP() {
