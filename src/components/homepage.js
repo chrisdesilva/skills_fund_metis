@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactGA from 'react-ga'
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Banner from "../components/banner"
-import LeadContent from "../components/leadcontent"
-import ThreeSteps from "../components/threesteps"
-import LoanCalculator from "../components/loancalculator"
-import InfoButtonContainer from "../components/infobuttoncontainer"
-import TermInfo from './terminfo'
-import FAQ from './faq'
-import Eligibility from './eligibility'
-import ContactForm from './contactform'
-import LoanApp from './loanapp'
-import LeadCaptureForm from './leadcaptureform'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Banner from '../components/banner'
+import LeadContent from '../components/leadcontent'
+import ThreeSteps from '../components/threesteps'
+
+const LoanCalculator = lazy(() => import('../components/loancalculator'))  
+const LoanApp = lazy(() => import('./loanapp'))  
+const LeadCaptureForm = lazy(() => import('./leadcaptureform'))  
+const InfoButtonContainer = lazy(() => import('../components/infobuttoncontainer'))  
+const TermInfo = lazy(() => import('./terminfo'))  
+const FAQ = lazy(() => import('./faq'))  
+const Eligibility = lazy(() => import('./eligibility'))  
+const ContactForm  = lazy(() => import('./contactform')) 
+
 
 class Homepage extends React.Component {
     constructor(props) {
@@ -94,34 +96,36 @@ class Homepage extends React.Component {
       render(){
         return (
           <Layout>
-            <SEO title="Metis" />
+            <SEO title='Metis' />
             <Banner 
                 howItWorksOnClick={this.scrollToContent}  
                 applyNowOnClick={this.scrollToApply}  
             />
             <LeadContent 
-              schoolName="Metis"
+              schoolName='Metis'
             />
             <ThreeSteps
               onClick={this.scrollToApply2} 
               ref={this.threesteps}
             />
-            <LoanCalculator />
-            <LoanApp 
-              ref={this.apply}
-              lenderCode={this.state.lenderCode}
-            />
-            <LeadCaptureForm />
-            <InfoButtonContainer 
-              info={this.activateMoreInfo}
-              faq={this.activateFAQ}
-              eligibility={this.activateEligibility}
-              contact={this.activateContact} 
-            />
-            {this.state.termInfo && <TermInfo />}
-            {this.state.faq && <FAQ />}
-            {this.state.eligibility && <Eligibility />}
-            {this.state.contact && <ContactForm />}
+            <Suspense fallback={<div className="text-center mt-8">Loading...</div>}>
+              <LoanCalculator />
+              <LoanApp 
+                ref={this.apply}
+                lenderCode={this.state.lenderCode}
+              />
+              <LeadCaptureForm />
+              <InfoButtonContainer 
+                info={this.activateMoreInfo}
+                faq={this.activateFAQ}
+                eligibility={this.activateEligibility}
+                contact={this.activateContact} 
+              />
+              {this.state.termInfo && <TermInfo />}
+              {this.state.faq && <FAQ />}
+              {this.state.eligibility && <Eligibility />}
+              {this.state.contact && <ContactForm />}
+            </Suspense>
           </Layout>
         )
       }
