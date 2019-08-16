@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { lazy } from 'react'
 import ReactGA from 'react-ga'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -108,7 +108,6 @@ class Homepage extends React.Component {
               onClick={this.scrollToApply2} 
               ref={this.threesteps}
             />
-            <Suspense fallback={<div className="text-center mt-8">Loading...</div>}>
               <LoanCalculator />
               <LoanApp 
                 ref={this.apply}
@@ -125,7 +124,6 @@ class Homepage extends React.Component {
               {this.state.faq && <FAQ />}
               {this.state.eligibility && <Eligibility />}
               {this.state.contact && <ContactForm />}
-            </Suspense>
           </Layout>
         )
       }
