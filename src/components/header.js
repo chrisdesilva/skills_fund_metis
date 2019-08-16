@@ -3,7 +3,7 @@ import React from "react"
 import schoolLogo from "../images/metis_logo.png"
 import skillsFund from "../images/skillsFund_logo.png"
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header
     style={{
       marginBottom: `1.45rem`,
@@ -20,6 +20,7 @@ const Header = ({ siteTitle }) => (
               src={schoolLogo} 
               alt="Metis logo"
               className="h-12"
+              loading="lazy"
             />
           </a>
           <a
@@ -31,6 +32,7 @@ const Header = ({ siteTitle }) => (
               src={skillsFund} 
               alt="Skills Fund logo"
               className="h-10"
+              loading="lazy"
             />
           </a>
       </div>

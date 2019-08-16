@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^2.13.9",
+    "gatsby-background-image": "^0.8.4",
     "gatsby-image": "^2.2.4",
     "gatsby-plugin-crazyegg": "^0.0.3",
     "gatsby-plugin-facebook-pixel": "^1.0.3",

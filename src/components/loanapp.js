@@ -107,7 +107,7 @@ const LoanApp = React.forwardRef((props, ref) => {
         <div ref={ref} className="flex flex-col items-center justify-center py-8 mx-2 lg:mx-10 rounded shadow-xl">
             <h3 className="text-center">Apply for Metis Tuition and Cost of Living Funding</h3>
             <div className="flex justify-center">
-                <img className="w-auto" src={marching} alt="People marching and carrying flags" />
+                <img loading="lazy" className="w-auto" src={marching} alt="People marching and carrying flags" />
             </div>
             <form className="metis_apply_now_GA program-apply flex flex-col items-center" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email address</label>
