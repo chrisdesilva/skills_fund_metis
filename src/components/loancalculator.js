@@ -71,19 +71,19 @@ class LoanCalculator extends React.Component {
                             <p className="text-xs text-center lg:hidden">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
                             <p className="font-bold text-center my-4">Payments:</p>
                             <div className="flex mb-4 text-center">
-                                <div className="border-secondary border-b w-1/2 mx-5">
+                                <div className="border-primary border-b w-1/2 mx-5">
                                     Interest-Only Period
                                 </div>
-                                <div className="border-secondary border-b w-1/2 mx-5">
+                                <div className="border-primary border-b w-1/2 mx-5">
                                     Full Payment Period
                                 </div>
                             </div>
                             <div className="flex text-center">
                                 <div className="w-1/2">
-                                    {this.state.interestPayment1 ? <p className="m-0 text-secondary text-2xl">${this.state.interestPayment1}</p>: <p className="m-0 text-secondary text-2xl">$77.91</p>}
+                                    {this.state.interestPayment1 ? <p className="m-0 text-primary text-2xl">${this.state.interestPayment1}</p>: <p className="m-0 text-primary text-2xl">$77.91</p>}
                                 </div>
                                 <div className="w-1/2">
-                                    {this.state.monthlyPayment1 ? <p className="m-0 text-secondary text-2xl">${this.state.monthlyPayment1}</p>: <p className="m-0 text-secondary text-2xl">$330.67</p>}
+                                    {this.state.monthlyPayment1 ? <p className="m-0 text-primary text-2xl">${this.state.monthlyPayment1}</p>: <p className="m-0 text-primary text-2xl">$330.67</p>}
                                 </div>
                             </div>
                             <div className="flex text-center text-xs">
@@ -102,19 +102,19 @@ class LoanCalculator extends React.Component {
                             <p className="text-xs text-center lg:hidden">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
                             <p className="font-bold text-center my-4">Payments:</p>
                             <div className="flex mb-4 text-center">
-                                <div className="border-secondary border-b w-1/2 mx-5">
+                                <div className="border-primary border-b w-1/2 mx-5">
                                     Interest-Only Period
                                 </div>
-                                <div className="border-secondary border-b w-1/2 mx-5">
+                                <div className="border-primary border-b w-1/2 mx-5">
                                     Full Payment Period
                                 </div>
                             </div>
                             <div className="flex text-center">
                                 <div className="w-1/2">
-                                    {this.state.interestPayment2 ? <p className="m-0 text-secondary text-2xl">${this.state.interestPayment2}</p>: <p className="m-0 text-secondary text-2xl">$95.25</p>}
+                                    {this.state.interestPayment2 ? <p className="m-0 text-primary text-2xl">${this.state.interestPayment2}</p>: <p className="m-0 text-primary text-2xl">$95.25</p>}
                                 </div>
                                 <div className="w-1/2">
-                                    {this.state.monthlyPayment2 ? <p className="m-0 text-secondary text-2xl">${this.state.monthlyPayment2}</p>: <p className="m-0 text-secondary text-2xl">226.07</p>}
+                                    {this.state.monthlyPayment2 ? <p className="m-0 text-primary text-2xl">${this.state.monthlyPayment2}</p>: <p className="m-0 text-primary text-2xl">226.07</p>}
                                 </div>
                             </div>
                             <div className="flex text-center text-xs">

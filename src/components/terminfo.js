@@ -7,9 +7,9 @@ const TermInfo = () => (
             <table>
                 <tbody>
                     <tr>
-                        <th className="bg-secondary text-center text-white">Skills Fund Loan</th>
-                        <th className="bg-secondary text-center text-white">36 Month</th>
-                        <th className="bg-secondary text-center text-white">60 Month</th>
+                        <th className="bg-primary text-center text-white">Skills Fund Loan</th>
+                        <th className="bg-primary text-center text-white">36 Month</th>
+                        <th className="bg-primary text-center text-white">60 Month</th>
                     </tr>
                     <tr>
                         <td className="text-center">Cosigners</td>
@@ -52,9 +52,9 @@ const TermInfo = () => (
             <table>
                 <tbody>
                     <tr>
-                        <th className="bg-secondary text-center text-white w-1/3">Example on a $10,000 loan</th>
-                        <th className="bg-secondary text-center text-white w-1/3">36 Month</th>
-                        <th className="bg-secondary text-center text-white w-1/3">60 Month</th>
+                        <th className="bg-primary text-center text-white w-1/3">Example on a $10,000 loan</th>
+                        <th className="bg-primary text-center text-white w-1/3">36 Month</th>
+                        <th className="bg-primary text-center text-white w-1/3">60 Month</th>
                     </tr>
                     <tr>
                         <td className="text-center">Annual Percentage Rate</td>
@@ -90,7 +90,7 @@ const TermInfo = () => (
             <table>
                 <tbody>
                     <tr>
-                        <th className="bg-secondary text-center text-white">Skills Fund Loan - 36 Months</th>
+                        <th className="bg-primary text-center text-white">Skills Fund Loan - 36 Months</th>
                     </tr>
                     <tr>
                         <td className="text-center font-bold bg-gray-100">Cosigners</td>
@@ -142,7 +142,7 @@ const TermInfo = () => (
                         <td className="text-center">36 months (3 years)</td> 
                     </tr>
                     <tr>
-                        <th className="bg-secondary text-center text-white">Skills Fund Loan - 60 Months</th>
+                        <th className="bg-primary text-center text-white">Skills Fund Loan - 60 Months</th>
                     </tr>
                     <tr>
                         <td className="text-center font-bold bg-gray-100">Cosigners</td>
@@ -202,7 +202,7 @@ const TermInfo = () => (
                         <th className="bg-black text-center text-white">Example on a $10,000 loan</th>
                     </tr>
                     <tr>
-                        <th className="bg-secondary text-center text-white">36 Month Loan</th>
+                        <th className="bg-primary text-center text-white">36 Month Loan</th>
                     </tr>
                     <tr>
                         <td className="text-center font-bold bg-gray-100">Annual Percentage Rate</td>
@@ -229,7 +229,7 @@ const TermInfo = () => (
                         <td className="text-center">$330.67 (4)</td> 
                     </tr>
                     <tr>
-                        <th className="bg-secondary text-center text-white">60 Month Loan</th>
+                        <th className="bg-primary text-center text-white">60 Month Loan</th>
                     </tr>
                     <tr>
                         <td className="text-center font-bold bg-gray-100">Annual Percentage Rate</td>    

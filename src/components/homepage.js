@@ -6,36 +6,27 @@ import Banner from '../components/banner'
 import LeadContent from '../components/leadcontent'
 import ThreeSteps from '../components/threesteps'
 import LoanCalculator from '../components/loancalculator'
-import LoanApp from './loanapp'
-import LeadCaptureForm from './leadcaptureform'
 import InfoButtonContainer from '../components/infobuttoncontainer'
 import TermInfo from './terminfo'
 import FAQ from './faq'
 import Eligibility from './eligibility'
 import ContactForm from './contactform'
+import LoanApp from './loanapp'
+import LeadCaptureForm from './leadcaptureform'
+import ApplyFooter from './applyfooter';
 
 
 class Homepage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          termInfo: true,
+          termInfo: false,
           faq: false,
           eligibility: false,
-          contact: false,
-          lenderCode: ''
+          contact: false
         }
         this.threesteps = React.createRef();
         this.apply = React.createRef();
-      }
-
-    
-      scrollToContent = () => {
-        this.threesteps.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'How It Works Button',
-          action: 'click'
-        })
       }
 
       scrollToApply = () => {
@@ -55,10 +46,19 @@ class Homepage extends React.Component {
           label: 'getting started'
         })
       }
+
+      scrollToApply3 = () => {
+        this.apply.current.scrollIntoView({ behavior: 'smooth' });
+        ReactGA.event({
+          category: 'Apply Now Button',
+          action: 'click',
+          label: 'footer'
+        })
+      }
     
       activateMoreInfo = () => {
         this.setState({
-          termInfo: true,
+          termInfo: !this.state.termInfo,
           faq: false,
           eligibility: false,
           contact: false
@@ -68,7 +68,7 @@ class Homepage extends React.Component {
       activateFAQ = () => {
         this.setState({
           termInfo: false,
-          faq: true,
+          faq: !this.state.faq,
           eligibility: false,
           contact: false
         })
@@ -78,7 +78,7 @@ class Homepage extends React.Component {
         this.setState({
           termInfo: false,
           faq: false,
-          eligibility: true,
+          eligibility: !this.state.eligibility,
           contact: false
         })
       }
@@ -88,21 +88,19 @@ class Homepage extends React.Component {
           termInfo: false,
           faq: false,
           eligibility: false,
-          contact: true
+          contact: !this.state.contact
         })
       }
     
       render(){
         return (
           <Layout>
-            <SEO title='Metis' />
+            <SEO title={this.props.schoolName} />
             <Banner 
                 howItWorksOnClick={this.scrollToContent}  
                 applyNowOnClick={this.scrollToApply}  
             />
-            <LeadContent 
-              schoolName='Metis'
-            />
+            <LeadContent />
             <ThreeSteps
               onClick={this.scrollToApply2} 
               ref={this.threesteps}
@@ -110,9 +108,15 @@ class Homepage extends React.Component {
             <LoanCalculator />
             <LoanApp 
               ref={this.apply}
-              lenderCode={this.state.lenderCode}
+              IP={this.props.IP}
+              pageUri={this.props.pageUri}
+              schoolName={this.props.schoolName}
             />
-            <LeadCaptureForm />
+            <LeadCaptureForm 
+              IP={this.props.IP}
+              pageUri={this.props.pageUri}
+              schoolName={this.props.schoolName}
+            />
             <InfoButtonContainer 
               info={this.activateMoreInfo}
               faq={this.activateFAQ}
@@ -122,7 +126,10 @@ class Homepage extends React.Component {
             {this.state.termInfo && <TermInfo />}
             {this.state.faq && <FAQ />}
             {this.state.eligibility && <Eligibility />}
-            {this.state.contact && <ContactForm />}
+            {this.state.contact && <ContactForm formName={this.props.formName}/>}
+            <ApplyFooter
+              onClick={this.scrollToApply3}
+            />
           </Layout>
         )
       }
