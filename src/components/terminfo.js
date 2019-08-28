@@ -1,8 +1,8 @@
 import React from 'react'
 
 const TermInfo = () => (
-    <div className="border-2 border-gray-300 shadow-xl rounded-lg text-center m-2 lg:m-10 p-8">
-       <h2 className="mt-4">More Info On Terms</h2>
+    <div className="text-center mx-2 lg:mx-10 p-8 shadow rounded">
+       <h2 className="py-4 text-center">More Info On Terms</h2>
         <div className="p-0 md:p-4 hidden lg:inline">
             <table>
                 <tbody>

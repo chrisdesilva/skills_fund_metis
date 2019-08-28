@@ -1,8 +1,8 @@
 import React from 'react'
 
 const FAQ = () => (
-    <div className="border-2 border-gray-300 shadow-xl rounded-lg m-2 lg:m-10 p-8">
-       <h2 className="mt-4 text-center">Frequently Asked Questions</h2>
+     <div className="mx-2 lg:mx-10 p-8 shadow rounded">
+       <h2 className="py-4 text-center">Frequently Asked Questions</h2>
        <h3 className="uppercase text-primary">how much can i borrow and for what specific uses?</h3>
             <p><strong>For the Data Science program,</strong> you may borrow from $2,000 to $15,500 for tuition. You may also borrow up to $10,000 for cost of living.</p>
             <p><strong>Please note:</strong> In order to finance cost of living, borrow at least $2,000 in tuition financing. You will pay your cash deposit directly to <strong>Metis.</strong></p>

@@ -6,8 +6,8 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
 const InfoButtonContainer = props => {
     return (
-        <div className="flex flex-wrap items-center justify-around p-4 my-5 mx-2 lg:mx-10 rounded shadow-xl bg-purple-100">
-            <div onClick={props.info} className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
+        <div className="flex flex-wrap items-center justify-around p-4 mx-2 lg:mx-10 rounded shadow-xl">
+            <div onClick={props.terms} className="cursor-pointer w-1/4 footerLink flex flex-col items-center">
                 <p className="m-0 text-primary">Term Details</p>
                 <FontAwesomeIcon icon={faAngleDown} />
             </div>
