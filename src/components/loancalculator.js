@@ -66,7 +66,7 @@ class LoanCalculator extends React.Component {
                     <p className="m-0 text-center">Students may borrow from ${this.state.min} to ${this.state.max}</p>
                     <p className="text-xs text-center hidden lg:inline">Make interest-only payments while in the program. Two months after completion, begin full payments.</p>
                     <Collapse isOpened={this.state.showOptions} springConfig={{stiffness: 150, damping: 40}}>
-                        <div className="shadow-xl rounded px-4 md:px-12 py-8 flex flex-col lg:flex-row">
+                        <div className="px-4 md:px-12 py-8 flex flex-col lg:flex-row">
                             <div className="flex flex-col mb-8 lg:mb-0 lg:mr-12">
                                 <h3 className="text-primary text-center font-normal">Option 1</h3>
                                 <h4 className="text-primary text-center font-normal">36-Month Fixed Rate Loan</h4>
