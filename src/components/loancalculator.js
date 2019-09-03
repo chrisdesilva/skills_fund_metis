@@ -58,7 +58,7 @@ class LoanCalculator extends React.Component {
             <div className="flex flex-col justify-center m-2 lg:m-10">
                 <div className="shadow-xl rounded h-auto p-8 flex flex-col items-center">
                     <h3 className="text-center">Calculate Your Monthly Payments</h3>
-                    <div className="flex flex-col justify-center w-1/2 md:w-1/3">
+                    <div className="flex flex-col justify-center items-center w-1/2 md:w-1/3">
                         <label className="text-xs text-center">Enter a loan amount:</label>
                         <input type="number" onChange={this.updateLoanAmount} className="rounded border-2 border-primary p-3 mb-5 text-primary text-center text-2xl" maxLength="6" placeholder="$10,000" />
                     </div>
