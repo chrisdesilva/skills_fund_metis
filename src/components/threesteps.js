@@ -19,7 +19,7 @@ const ThreeSteps = React.forwardRef((props, ref) => {
                 <div id="stepCard2" className="stepCards flex flex-col items-center m-2 lg:w-1/3 p-4 rounded shadow-2xl bg-white border-primary border-t-8">
                     <p className="rounded-full h-10 w-10 flex items-center justify-center border border-primary">2</p>
                     <h3 className="uppercase">select your campus</h3>
-                    <p>Choose from one of four Metis locations including Chicago, Seattle, New York City, and San Francisco.</p>
+                    <p>Choose from one of three Metis locations including Chicago, New York City, and San Francisco.</p>
                 </div>
                 {/* ^^^ Update this section as needed ^^^ */}
 
