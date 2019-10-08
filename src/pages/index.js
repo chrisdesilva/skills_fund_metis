@@ -33,6 +33,12 @@ const IndexPage = () => {
   useEffect(() => {
     ReactPixel.init('928181257515785');
     fetchIP();
+    const button = document.querySelector('.leadin-button')
+    if(button) {
+      button.onclick = function(e) {
+        alert("Thanks!")
+      }
+    }
   })
   
   return (
