@@ -1,7 +1,8 @@
 import React from 'react'
-import ReactGA from 'react-ga'
+// import ReactGA from 'react-ga'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Popup from '../components/popup'
 import Banner from '../components/banner'
 import LeadContent from '../components/leadcontent'
 import ThreeSteps from '../components/threesteps'
@@ -41,29 +42,11 @@ class Homepage extends React.Component {
 
       scrollToApply = () => {
         this.apply.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'Apply Now Button | Metis',
-          action: 'click',
-          label: 'banner'
-        })
-      }
-
-      scrollToApply2 = () => {
-        this.apply.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'Apply Now Button | Metis',
-          action: 'click',
-          label: 'getting started'
-        })
-      }
-
-      scrollToApply3 = () => {
-        this.apply.current.scrollIntoView({ behavior: 'smooth' });
-        ReactGA.event({
-          category: 'Apply Now Button | Metis',
-          action: 'click',
-          label: 'footer'
-        })
+        // ReactGA.event({
+        //   category: 'Apply Now Button | Metis',
+        //   action: 'click',
+        //   label: 'banner'
+        // })
       }
     
       activateMoreInfo = () => {
@@ -101,18 +84,23 @@ class Homepage extends React.Component {
           contact: !this.state.contact
         })
       }
-    
+
       render(){
         return (
           <Layout>
             <SEO title={this.props.schoolName} />
+            <Popup 
+              IP={this.props.IP}
+              pageUri={this.props.pageUri}
+              schoolName={this.props.schoolName}
+            />
             <Banner 
                 howItWorksOnClick={this.scrollToContent}  
                 applyNowOnClick={this.scrollToApply}  
             />
             <LeadContent />
             <ThreeSteps
-              onClick={this.scrollToApply2} 
+              onClick={this.scrollToApply} 
               ref={this.threesteps}
             />
             <LoanCalculator />
@@ -147,7 +135,7 @@ class Homepage extends React.Component {
                 <ContactForm formName={this.props.formName}/>
             </Collapse>
             <ApplyFooter
-              onClick={this.scrollToApply3}
+              onClick={this.scrollToApply}
             />
           </Layout>
         )

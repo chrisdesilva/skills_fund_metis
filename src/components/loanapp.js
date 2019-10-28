@@ -95,8 +95,8 @@ const LoanApp = React.forwardRef((props, ref) => {
 
     
     return (
-        <div ref={ref} className="flex flex-col items-center justify-center pt-8 mx-2 lg:mx-10 rounded shadow-xl bg-purple-150">
-            <h2>Loan Application</h2>
+        <div ref={ref} className="flex flex-col items-center justify-center pt-8 mx-2 lg:mx-10 rounded shadow-xl bg-primary">
+            <h2 className="text-white">Loan Application</h2>
             <div className="rounded shadow-2xl p-8 mx-4 bg-white">
                 {/* update with school name, remove cost of living if school does not offer it */}
                 <h3 className="text-center font-normal">{props.schoolName} Tuition and Cost of Living Financing</h3>
@@ -113,15 +113,15 @@ const LoanApp = React.forwardRef((props, ref) => {
                     <input readOnly type="text" name="Student Loan Application Status" value="BLA Click Email Submitted"/>
                     <input readOnly type="text" name="Clicked Begin Loan Application BLA" value="BLA Click"/>
                 </div>
-                {submitted ? <span className="pt-4 text-center">Thanks for applying! Your loan application has opened in a new window. If the application does not open and pop-up blockers have been disabled, please contact <a href="mailto:tech@skills.fund" className="text-primary">Tech@Skills.Fund</a>.</span> : <input className="opacityApply uppercase bg-primary p-3 mb-2 w-40 rounded-full shadow-lg text-white cursor-pointer" value="APPLY NOW" type="submit"/>}
+                {submitted ? <span className="pt-4 text-center">Thanks for applying! Your loan application has opened in a new window. If the application does not open and pop-up blockers have been disabled, please contact <a href="mailto:tech@skills.fund" className="text-primary">Tech@Skills.Fund</a>.</span> : <input className="opacityApply uppercase bg-primary p-3 mb-2 w-40 rounded-full shadow-lg text-white cursor-pointer" id="loanAppSubmitBtn" value="APPLY NOW" type="submit"/>}
                 {!submitted && <p className="pt-5 text-xs italic mb-0 px-8 text-center">Please note: clicking Apply Now will open your loan application in a new tab</p>}
             </form>
             </div>
             <div className="px-8 text-sm">
-                <p className="text-center mt-8">If you are a cosigner, begin the addendum now by clicking <a className="text-primary" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
-                <p className="text-center text-primary cursor-pointer font-bold" onClick={() => showDisclaimers(!disclaimers)}>Disclaimers</p>
+                <p className="text-center mt-8 text-white">If you are a cosigner, begin the addendum now by clicking <a className="underline" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p>
+                <p className="text-center text-white cursor-pointer font-bold underline" onClick={() => showDisclaimers(!disclaimers)}>Disclaimers</p>
             <Collapse isOpened={disclaimers} springConfig={{stiffness: 150, damping: 40}}>
-                <div>
+                <div className="text-white">
                     <p><strong>Before you begin, please read these important notes:</strong></p>
                     <p>Customer identification policy:</p>
                     <p>For the purpose of the following notice, the words "you" and "your" mean the Borrower and the Cosigner. All applicants: Important Federal Law Notice - Important information about procedures for opening a new account: To help the government fight the funding of terrorism and money laundering activities, federal law requires all financial institutions to obtain, verify, and record information that identifies each person who opens an account. What this means for you: When you open an account, we will ask for your name, address, date of birth and other information that will allow us to identify you. We may also ask to see your driver's license or other identifying documents.</p>

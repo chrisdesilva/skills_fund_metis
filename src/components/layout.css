@@ -4,22 +4,37 @@
 @tailwind utilities;
 
 #banner { 
-  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0%, 100% 90%, 0% 100%);
   height: 55vh;
-  position: relative;
+  border-bottom: 8px solid #14a5a9;
 }
-#banner::before {
-  -webkit-clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
-  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
-  height: 100%;
-  content: '';
-  left: 0;
-  bottom: -86%;
-  right: 0;
-  background: #9d1996;
-  display: block;
-  position: absolute;
+
+.popup {
+  background: #000;
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 100px;
+  align-items: center;
+  opacity: 1;
+  transition: all 1000ms;
+}
+
+@media screen and (max-width: 768px){
+  .popup {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 2rem;
+    height: 250px;
+  }
+}
+
+.hidePopup {
+  opacity: 0;
+  height: 0;
 }
 
 .opacityApply {
@@ -40,11 +55,11 @@
 }
 
 .footerLink:hover {
-  color: #9d1996;
+  color: #14a5a9;
 }
 
 .fa-angle-down {
-  color: #9d1996;
+  color: #14a5a9;
 }
 
 #stepCard1:hover {

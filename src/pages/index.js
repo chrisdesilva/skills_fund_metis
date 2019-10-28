@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Homepage from '../components/homepage'
-import ReactGA from 'react-ga'
+// import ReactGA from 'react-ga'
 import ReactPixel from 'react-facebook-pixel'
 
-const trackingId = "UA-68312423-1"
-ReactGA.initialize(trackingId, {
-  debug: false,
-  titleCase: false,
-  gaOptions: {
-    siteSpeedSampleRate: 100
-  }
-})
+// const trackingId = "UA-68312423-1"
+// ReactGA.initialize(trackingId, {
+//   debug: false,
+//   titleCase: false,
+//   gaOptions: {
+//     siteSpeedSampleRate: 100
+//   }
+// })
 
 const netlifyFormName = 'metis_contact'
 
@@ -33,12 +33,6 @@ const IndexPage = () => {
   useEffect(() => {
     ReactPixel.init('928181257515785');
     fetchIP();
-    const button = document.querySelector('.leadin-button.leadin-button-primary.leadin-primary.leadin-submit')
-    if(button) {
-      button.onclick = function(e) {
-        alert("Thanks!")
-      }
-    }
   })
   
   return (
