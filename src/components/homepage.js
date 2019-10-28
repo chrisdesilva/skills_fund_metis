@@ -2,7 +2,7 @@ import React from 'react'
 // import ReactGA from 'react-ga'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Popup from '../components/popup'
+// import Popup from '../components/popup'
 import Banner from '../components/banner'
 import LeadContent from '../components/leadcontent'
 import ThreeSteps from '../components/threesteps'
@@ -89,11 +89,11 @@ class Homepage extends React.Component {
         return (
           <Layout>
             <SEO title={this.props.schoolName} />
-            <Popup 
+            {/* <Popup 
               IP={this.props.IP}
               pageUri={this.props.pageUri}
               schoolName={this.props.schoolName}
-            />
+            /> */}
             <Banner 
                 howItWorksOnClick={this.scrollToContent}  
                 applyNowOnClick={this.scrollToApply}  
