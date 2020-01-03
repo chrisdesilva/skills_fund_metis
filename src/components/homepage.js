@@ -14,7 +14,7 @@ import LoanApp from './loanapp';
 import Reviews from './reviews';
 import DisabledApplication from './disabledApplication';
 import LeadCaptureForm from './leadcaptureform';
-import ApplyFooter from './applyFooter';
+import ApplyFooter from './applyfooter';
 import TermInfo from './terminfo';
 import FAQ from './faq';
 import Eligibility from './eligibility';
