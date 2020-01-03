@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-const Button = props => (
-    <div className={props.divClassName}>
-        <button onClick={props.onClick} className={props.buttonClassName}>{props.text}</button>
-    </div>
-)
+// no updates necessary
 
-export default Button
+const Button = (props) => (
+	<div className={props.divClassName}>
+		<button onClick={props.onClick} className={props.buttonClassName} id={props.id}>
+			{props.text}
+		</button>
+	</div>
+);
+
+export default Button;

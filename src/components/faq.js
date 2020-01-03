@@ -1,22 +1,10 @@
 import React, { useState } from 'react'
 import { FaAngleDown } from 'react-icons/fa'
 import { UnmountClosed as Collapse } from 'react-collapse'
+import { faq, schoolName } from '../constants/programInfo'
 
-const schoolName = 'Metis'
-const costOfLiving = true // true if at least one program has cost of living included
-const interestOnly = true // true if interest-only payments are an option
-const immediateRepayment = false // true if immediate repayment is an option
-const multipleLoanLengths = true // true if 36 and 60 month options are both available
-const multipleLoanTypes = false // true if 36 and 60 month options are both available
 
-// interest payment FAQ info
-const interestRate36 = '8.99%'
-const interestRate60 = '10.99%'
-const APR36 = '11.16%'
-const APR60 = '12.51%'
-const IOPayment36 = '$77.91'
-const IOPayment60 = '$95.25'
-
+// update with school-specific info
 const FAQ = () => {
 
      const [q1, showq1] = useState(false)
@@ -34,18 +22,27 @@ const FAQ = () => {
      return (
           <div className="mx-2 lg:mx-10 p-8 shadow rounded">
           <h2 className="py-4 text-center">Frequently Asked Questions</h2>
+          
           <div onClick={() => showq1(!q1)}><h3 className="text-lg text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>How much can I borrow and for what specific uses?</h3></div>
           <Collapse isOpened={q1} springConfig={{stiffness: 150, damping: 30}}>
-               <p><strong>For the Data Science program,</strong> you may borrow from $2,000 to $15,500 for tuition. You may also borrow up to $10,000 for cost of living.</p>
-               <p className="mb-0 pb-4"><strong>Please note:</strong> In order to finance cost of living, borrow at least $2,000 in tuition financing. You will pay your cash deposit directly to <strong>{schoolName}</strong>.</p>
+          {faq.multiplePrograms && <p>The maximum amount you can borrow will depend on your program.{faq.costOfLiving && <span> You can finance your tuition and cost of living expenses.</span>}</p>}
+               <ul className="mb-0 pb-4">
+                    {faq.loanRange.map(program => {
+                         return <li>
+                              <strong>For {program.programName},</strong> you may borrow from $2,000 up to {program.maxAmount} for tuition. {program.col ? <span>You may also borrow up to {program.colAmount} for cost of living.</span> : <span>Cost of living is not available for this program.</span>}
+                         </li>
+                    })}
+               </ul>
+               {faq.costOfLiving && <p className="mb-0 pb-4"><strong>Please note:</strong> In order to finance cost of living, borrow at least $2,000 in tuition financing. You will pay your cash deposit directly to <strong>{schoolName}</strong>.</p>}
           </Collapse>
-        
-          {costOfLiving &&
+          
+          {faq.costOfLiving &&
                <>
                <div onClick={() => showq2(!q2)}><h3 className="text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>when will i receive my living stipend?</h3></div>
                <Collapse isOpened={q2} springConfig={{stiffness: 150, damping: 30}}>
-                         {/* INCLUDE FIRST <p> IF ONLY CERTAIN PROGRAMS OFFER COST OF LIVING */}
-                         {/* <p><strong>Only the AWS Cloud and Full-Stack Web Development programs are eligible for cost of living.</strong></p> */}
+                         
+                         {faq.costOfLivingPrograms && <p><strong>Only the {faq.costOfLivingPrograms} {faq.multCostOfLivingPrograms ? <span>are</span>: <span>is</span>} eligible for cost of living.</strong></p>}
+
                          <p>Your lump sum living stipend will be sent to you on the second Wednesday after your program start. You can elect to have your cost of living disbursed via electronic funds transfer or mailed directly to the address provided in their loan application.</p>
                          <p className="mb-0 pb-4">Please allow 1 - 5 business days for your electronic funds transfer to be reflected in your bank account. For all students who elect to have funds mailed to their address, please allow 5 - 10 business days for your check to arrive via U.S. Standard Mail.</p>
                </Collapse>
@@ -56,7 +53,7 @@ const FAQ = () => {
           <Collapse isOpened={q3} springConfig={{stiffness: 150, damping: 30}}>
                     <p>You have several options, including automated payments! After you apply for a loan, we’ll help you set up your repayment account. About one month after your program starts, you’ll make your first loan payment.</p>
                     <p>You’ll make monthly payments until your loan is fully repaid, and we’re happy to say there’s no prepayment penalty or fee for early payments on Skills Fund loans. You can choose to pay the minimum monthly payment, or you can make larger payments. You have the flexibility to pay off your loan anytime before your loan term ends!</p>
-                    {multipleLoanTypes && <>
+                    {faq.multipleLoanTypes && <>
                          <p>Skills Fund offers two repayment options. Check out the loan calculator to decide which repayment option is the best fit for you!</p>
                          <ul>
                               <li className="list-disc"><strong>Interest-only</strong> loans allow you to hold on to more of your savings during your training. You’ll start making low, interest-only payments about one month after your program starts and continue those payments for two months after the program ends. After this interest-only period, you’ll start making full payments (interest + principal).</li>
@@ -64,7 +61,7 @@ const FAQ = () => {
                          </ul>
                     </>
                     }
-                    {!multipleLoanTypes && interestOnly && 
+                    {!faq.multipleLoanTypes && faq.interestOnly && 
                          <p>Skills Fund’s interest-only loans allow you to hold on to more of your savings during your training. You’ll start making low, interest-only payments about one month after your program starts and continue those payments for two months after the program ends. After this interest-only period, you’ll start making full payments (interest + principal).</p>
                     }
                     <p>Aspire and Launch are the loan servicers for Skills Fund’s loans. This means Aspire or Launch will collect your monthly payments during the repayment phase of your loan. All loans applied for <strong>before December 26th, 2019</strong> will be serviced by Aspire. All loans applied for <strong>on or after December 26th, 2019</strong> will be serviced by Launch. </p>
@@ -72,23 +69,28 @@ const FAQ = () => {
                     <ul className="mb-0 pb-4"><li className="list-disc">If you applied for your loan before December 26th, 2019, visit <a className="font-bold text-primary" href="https://www.aspireservicingcenter.com/" target="_blank" rel="noreferrer noopener">Aspire online</a> or at 1-800-243-7552. </li>
                     <li className="list-disc">If you applied for your loan on or after December 26th, 2019, visit <a className="font-bold text-primary" href="https://prod.launchservicing.com/Borrower/Login.aspx" target="_blank" rel="noreferrer noopener">Launch online</a> or at 877-354-2629. </li></ul>
                </Collapse>
+
           
           <div onClick={() => showq4(!q4)}><h3 className="text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>what is the deferment period?</h3></div>
                <Collapse isOpened={q4} springConfig={{stiffness: 150, damping: 30}}>
                     <p className="mb-0 pb-4">The deferment period is defined as the time you are attending the course, plus an additional two months after program completion. These additional two months are considered your grace period.</p>
-                    {interestOnly && <p className="mb-0 pb-4"><strong>Interest-Only Loans: </strong>Interest-only payments are required during the deferment period. After the deferment period ends, payments of interest and principal are required. Paying interest on your loan during the deferment period will result in lower interest + principal payments during the full loan repayment phase of 36{multipleLoanLengths && <span> or 60</span>} months.</p>}
-                    {immediateRepayment && <p className="mb-0 pb-4"><strong>Immediate Repayment Loans: </strong>These loans have no deferment period. You will start making full monthly payments (interest plus principal) roughly one month after your loan is disbursed to your school. Disbursement occurs on the second Wednesday after program start.</p>}
+                    {faq.interestOnly && <p className="mb-0 pb-4"><strong>Interest-Only Loans: </strong>Interest-only payments are required during the deferment period. After the deferment period ends, payments of interest and principal are required. Paying interest on your loan during the deferment period will result in lower interest + principal payments during the full loan repayment phase of 36{faq.multipleLoanLengths && <span> or 60</span>} months.</p>}
+                    {faq.immediateRepayment && <p className="mb-0 pb-4"><strong>Immediate Repayment Loans: </strong>These loans have no deferment period. You will start making full monthly payments (interest plus principal) roughly one month after your loan is disbursed to your school. Disbursement occurs on the second Wednesday after program start.</p>}
                </Collapse>
-
-          <div onClick={() => showq5(!q5)}><h3 className="text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>how much are interest payments during the deferment period?</h3></div>
+          
+          {faq.interestOnly &&
+               <>
+               <div onClick={() => showq5(!q5)}><h3 className="text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>how much are interest payments during the deferment period?</h3></div>
                <Collapse isOpened={q5} springConfig={{stiffness: 150, damping: 30}}>
                     <p>The interest-only payments depend on how much you borrow; the less you borrow, the less you will pay.</p>
-                    <p><strong>For a 36-month $10,000 loan:</strong> The interest rate is fixed at {interestRate36} / {APR36} estimated APR. The interest-only monthly payment is approximately {IOPayment36}.</p>
-                    {multipleLoanLengths && <p><strong>For a 60-month $10,000 loan:</strong> The interest rate is fixed at {interestRate60} / {APR60} estimated APR. The interest-only monthly payment is approximately {IOPayment60}.</p>}
+                    <p><strong>For a 36-month {faq.exampleLoanAmount} loan:</strong> The interest rate is fixed at {faq.interestRate36} / {faq.APR36} estimated APR. The interest-only monthly payment is approximately {faq.IOPayment36}.</p>
+                    {faq.multipleLoanLengths && <p><strong>For a 60-month {faq.exampleLoanAmount} loan:</strong> The interest rate is fixed at {faq.interestRate60} / {faq.APR60} estimated APR. The interest-only monthly payment is approximately {faq.IOPayment60}.</p>}
                     <p>Please see terms in "Term Details" above.</p>
                     <p className="mb-0 pb-4"><strong>Please note:</strong> The Annual Percentage Rate (APR) is estimated and may change slightly based on the loan type, origination fee, and approximate program length. To learn how an Annual Percentage Rate (APR) is calculated, <a className="text-primary" target="_blank" href="https://skills.fund/resources/how-is-an-apr-calculated" rel="noreferrer noopener">visit our blog.</a></p>
                </Collapse>
-          
+               </>
+          }
+
           <div onClick={() => showq6(!q6)}><h3 className="text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>will i get charged any fees for taking out this loan?</h3></div>
                <Collapse isOpened={q6} springConfig={{stiffness: 150, damping: 30}}>
                     <p>You will be charged an origination fee of 4.0%. This amount will be added to the amount of tuition you borrow and is included in the total loan principal amount you finance. This fee helps cover the administrative fees associated with originating the loan and is charged by our partner bank. Please see terms in "Term Details" above.</p>
@@ -109,7 +111,6 @@ const FAQ = () => {
                     <p className="mb-0 pb-4">Learn more about our <a className="font-bold text-primary" href="https://skills.fund/students/will-my-loan-application-be-approved" target="_blank" rel="noreferrer noopener"> credit and eligibility criteria</a> and see our guide to <a className="font-bold text-primary" href="https://skills.fund/resources/how-to-find-the-right-cosigner-for-your-loan" target="_blank" rel="noreferrer noopener">finding the right cosigner.</a></p>
                </Collapse>
  
- 
           <div onClick={() => showq9(!q9)}><h3 className="text-lg uppercase text-primary flex items-center cursor-pointer"><span className="text-sm"><FaAngleDown /></span>when can i apply for a loan?</h3></div>
                <Collapse isOpened={q9} springConfig={{stiffness: 150, damping: 30}}>
                     <p className="mb-0 pb-4">Apply for the loan after your acceptance into a program. Your program cohort must begin within 90 days of the date that you apply for a loan.</p>
@@ -120,7 +121,7 @@ const FAQ = () => {
                     <p>During the loan application process, we will ask you for the following information:</p>
                     <ul className="list-disc mb-0 pb-4">
                     <li>Full name</li>
-                         <li>Email address and other contact information</li>
+                    <li>Email address and other contact information</li>
                          <li>Social Security Number</li>
                          <li>Date of birth</li>
                          <li>Loan amount requested</li>

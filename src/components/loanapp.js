@@ -1,26 +1,137 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactGA from 'react-ga';
 import ReactPixel from 'react-facebook-pixel';
 import marching from '../images/PeopleMarchColor.png';
 import { UnmountClosed as Collapse } from 'react-collapse';
+import {
+	faq,
+	hubspotFormId,
+	moreThanSixPrograms,
+	programLoanInfo,
+	schoolName,
+	selectAProgram,
+	skfURL
+} from '../constants/programInfo';
 
 const LoanApp = React.forwardRef((props, ref) => {
 	const [ email, setEmail ] = useState('');
-	const [ disclaimers, showDisclaimers ] = useState(false);
-	const thankYouMsg = 'Thanks for applying! Your loan application has opened in a new window.';
 	const [ submitted, isSubmitted ] = useState(false);
+	const [ disclaimers, toggleDisclaimers ] = useState(false);
+	const [ loanUrl, setLoanUrl ] = useState(programLoanInfo[0].url);
+	const [ programName, setProgramName ] = useState(programLoanInfo[0].name);
+	const [ activeIndex, setActiveIndex ] = useState(0); // takes in index of program to execute setActive hook
+	const [ active, setActive ] = useState(null); // sets individual programs as active or inactive to change highlight color
+	const activeClass =
+		'menu-item cursor-pointer border-2 rounded border-black text-center py-2 mb-2 bg-primary text-white';
+	const inactiveClass = 'menu-item cursor-pointer border-2 rounded border-black text-center py-2 mb-2';
+	const formName = `${props.schoolName}_apply_now program-apply flex flex-col items-center`;
+	const costOfLiving = faq.costOfLiving;
+	const multiplePrograms = faq.multiPrograms;
+	const onlinePrograms = faq.onlinePrograms;
+	const schoolHQState = faq.schoolHQState;
+
 	const handleChange = (e) => {
 		setEmail(e.target.value);
 	};
 
-	// lender code can be found in loan parameters
-	const redirectLoanApp = (e) => {
-		window.open('https://my.skills.fund/application?lenderCode=SKMETA19', '_blank', 'noopener noreferrer');
+	const toggleIsActive = (i) => {
+		setLoanUrl(programLoanInfo[i]['url']);
+		setProgramName(programLoanInfo[i]['name']);
+		setActiveIndex(i);
+		switch (activeIndex) { // accounts for up to 10 programs
+			case 0:
+				setActive({
+					0: !active,
+					1: false,
+					2: false,
+					3: false,
+					4: false,
+					5: false
+				});
+				break;
+			case 1:
+				setActive({
+					0: false,
+					1: !active,
+					2: false,
+					3: false,
+					4: false,
+					5: false
+				});
+				break;
+			case 2:
+				setActive({
+					0: false,
+					1: false,
+					2: !active,
+					3: false,
+					4: false,
+					5: false
+				});
+				break;
+			case 3:
+				setActive({
+					0: false,
+					1: false,
+					2: false,
+					3: !active,
+					4: false,
+					5: false
+				});
+				break;
+			case 4:
+				setActive({
+					0: false,
+					1: false,
+					2: false,
+					3: false,
+					4: !active,
+					5: false
+				});
+				break;
+			case 5:
+				setActive({
+					0: false,
+					1: false,
+					2: false,
+					3: false,
+					4: false,
+					5: !active
+				});
+				break;
+			default:
+				setActive({
+					0: !active,
+					1: false,
+					2: false,
+					3: false,
+					4: false,
+					5: false
+				});
+				break;
+		}
 	};
 
-	const trackGoogleAnalyticsEvent = (e) => {
+	const toggleIsActiveDropdown = (e) => {
+		let program = e.target.value;
+		setActiveIndex(program);
+	};
+
+	useEffect(
+		() => {
+			setLoanUrl(programLoanInfo[activeIndex]['url']);
+			setProgramName(programLoanInfo[activeIndex]['name']);
+		},
+		[ activeIndex ]
+	);
+
+	const redirectLoanApp = () => {
+		window.open(loanUrl, '_blank', 'noopener noreferrer');
+	};
+
+	const trackGoogleAnalyticsEvent = () => {
 		ReactGA.event({
-			category: 'Apply Now Button | Metis',
+			category: `Apply Now Button | ${schoolName}`,
 			action: 'click',
 			label: 'submitted loan application'
 		});
@@ -33,16 +144,20 @@ const LoanApp = React.forwardRef((props, ref) => {
 		});
 	};
 
+	// submit form data to Hubspot, track Google Analytics event, and redirect user to loan application
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		var url =
-			'https://api.hsforms.com/submissions/v3/integration/submit/3871135/0abd7292-985c-43fe-8480-0759a6cba99e';
+		const url = `https://api.hsforms.com/submissions/v3/integration/submit/3871135/${hubspotFormId}`;
+
+		// hsCookie gets the data necessary to track Hubspot analytics
 		const hsCookie = document.cookie.split(';').reduce((cookies, cookie) => {
 			const [ name, value ] = cookie.split('=').map((c) => c.trim());
 			cookies[name] = value;
 			return cookies;
 		}, {});
-		var data = {
+
+		//   field names are all set to match internal values on Hubspot
+		const data = {
 			fields: [
 				{
 					name: 'email',
@@ -53,12 +168,12 @@ const LoanApp = React.forwardRef((props, ref) => {
 					value: 'Student'
 				},
 				{
-					name: 'program_name',
-					value: 'Data Science Bootcamp'
+					name: `${selectAProgram}`,
+					value: `${programName}`
 				},
 				{
 					name: 'school',
-					value: 'Metis'
+					value: `${props.schoolName}`
 				},
 				{
 					name: 'student_loan_application_status',
@@ -71,7 +186,7 @@ const LoanApp = React.forwardRef((props, ref) => {
 			],
 			context: {
 				hutk: hsCookie.hubspotutk, // include this parameter and set it to the hubspotutk cookie value to enable cookie tracking on your submission
-				pageUri: `${props.pageUri}`,
+				pageUri: `${skfURL}`,
 				pageName: `${props.schoolName} | Skills Fund`,
 				ipAddress: `${props.IP}`
 			}
@@ -100,13 +215,16 @@ const LoanApp = React.forwardRef((props, ref) => {
 			className="flex flex-col items-center justify-center pt-8 mx-2 lg:mx-10 rounded shadow-xl bg-primary"
 		>
 			<h2 className="text-white">Loan Application</h2>
-			<div className="rounded shadow-2xl p-8 mx-4 bg-white">
+			<div className="rounded shadow-2xl pt-8 px-8 mx-4 bg-white">
 				{/* update with school name, remove cost of living if school does not offer it */}
-				<h3 className="text-center font-normal">{props.schoolName} Tuition and Cost of Living Financing</h3>
+				<h3 className="text-center font-normal">
+					{props.schoolName} Tuition{costOfLiving && <span> and Cost of Living</span>} Financing
+				</h3>
 				<div className="flex justify-center">
 					<img className="w-auto" src={marching} alt="People marching and carrying flags" loading="lazy" />
 				</div>
-				<form className="metis_apply_now_GA program-apply flex flex-col items-center" onSubmit={handleSubmit}>
+				{/* update form fields as necessary */}
+				<form className={formName} onSubmit={handleSubmit}>
 					<label htmlFor="email">Email address</label>
 					<input
 						className="border-2 rounded border-primary text-center py-2 mb-4 w-64"
@@ -117,17 +235,53 @@ const LoanApp = React.forwardRef((props, ref) => {
 						value={email}
 						required
 					/>
+					{multiplePrograms &&
+					!moreThanSixPrograms && (
+						<div className="w-full lg:w-64 px-8 lg:px-0">
+							<p className="text-center text-sm">Select your {props.schoolName} program</p>
+							{programLoanInfo.map((program, i) => {
+								return (
+									<p
+										key={program.name}
+										className={activeIndex === i ? activeClass : inactiveClass}
+										onClick={() => toggleIsActive(i)}
+									>
+										{program.name}
+									</p>
+								);
+							})}
+						</div>
+					)}
+					{multiplePrograms &&
+					moreThanSixPrograms && (
+						<div className="w-full lg:w-64 px-8 lg:px-0">
+							<p className="text-center text-sm">Select your {props.schoolName} program</p>
+							<select
+								id="programSelect"
+								className="border-2 border-primary mb-5 bg-white text-primary text-center w-full"
+								onChange={toggleIsActiveDropdown}
+							>
+								{programLoanInfo.map((program, i) => {
+									return (
+										<option key={program.name} value={i}>
+											{program.name}
+										</option>
+									);
+								})}
+							</select>
+						</div>
+					)}
 					<div className="hidden">
-						<input readOnly type="text" name="Stakeholder Type" value="Student" />
-						<input readOnly type="text" name="Program Name" value="Data Science Bootcamp" />
-						<input readOnly type="text" name="School" value="Metis" />
+						<input type="text" name="Stakeholder Type" value="Student" readOnly />
+						<input type="text" name="Program Name" value={programLoanInfo.programName} readOnly />
+						<input type="text" name="School" value={props.schoolName} readOnly />
 						<input
-							readOnly
 							type="text"
 							name="Student Loan Application Status"
 							value="BLA Click Email Submitted"
+							readOnly
 						/>
-						<input readOnly type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" />
+						<input type="text" name="Clicked Begin Loan Application BLA" value="BLA Click" readOnly />
 					</div>
 					{submitted ? (
 						<span className="pt-4 text-center">
@@ -139,39 +293,34 @@ const LoanApp = React.forwardRef((props, ref) => {
 						</span>
 					) : (
 						<input
-							className="opacityApply uppercase bg-primary p-3 mb-2 w-40 rounded-full shadow-lg text-white cursor-pointer"
-							id="loanAppSubmitBtn"
+							className="opacityApply uppercase bg-primary p-3 my-4 w-48 rounded-full shadow-lg text-white cursor-pointer"
 							value="APPLY NOW"
+							id="loanAppSubmitBtn"
 							type="submit"
 						/>
 					)}
 					{!submitted && (
-						<p className="pt-5 text-xs italic mb-0 px-8 text-center">
+						<p className="mt-3 text-xs italic">
 							Please note: clicking Apply Now will open your loan application in a new tab
 						</p>
 					)}
 				</form>
 			</div>
+			{/* {onlinePrograms && 
+                    <p className="m-0 text-base pt-8 px-4">
+                        <strong className="m-0">ATTENTION ONLINE STUDENTS: </strong>When entering "Applicant Information" within your loan application, <strong className="m-0">please select {schoolHQState} as "the state of the school you plan to attend."</strong>
+                    </p>
+                } */}
 			<div className="px-8 text-sm">
-				{/* <p className="text-center mt-8 text-white">
-					If you are a cosigner, begin the addendum now by clicking{' '}
-					<a
-						className="underline"
-						href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1"
-						rel="noreferrer noopener"
-						target="_blank"
-					>
-						here
-					</a>.
-				</p> */}
+				{/* <p className="text-center pt-8 text-white">If you are a cosigner, begin the addendum now by clicking <a className="underline" href="https://sf.privateloan.studentloan.org/Cosigner.do?execution=e1s1" rel="noreferrer noopener" target="_blank">here</a>.</p> */}
 				<p
-					className="text-center text-white cursor-pointer font-bold underline my-4"
-					onClick={() => showDisclaimers(!disclaimers)}
+					className="text-center text-white underline cursor-pointer font-bold my-4"
+					onClick={() => toggleDisclaimers(!disclaimers)}
 				>
 					Disclaimers
 				</p>
 				<Collapse isOpened={disclaimers} springConfig={{ stiffness: 150, damping: 40 }}>
-					<div className="text-white">
+					<div>
 						<p>
 							<strong>Before you begin, please read these important notes:</strong>
 						</p>

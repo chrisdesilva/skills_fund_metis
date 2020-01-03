@@ -1,6 +1,6 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -14,20 +14,19 @@ import Img from "gatsby-image"
  */
 
 const Image = () => {
-  const data = useStaticQuery(graphql`
-  query {
-    file(relativePath: { eq: "ebook.png" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          fluid {
-            ...GatsbyImageSharpFluid
-      }
-    }
-  }
-}
-  `)
+	const data = useStaticQuery(graphql`
+		query {
+			classroom: file(relativePath: { eq: "Classroom_Color.png" }) {
+				childImageSharp {
+					fluid(maxWidth: 300) {
+						...GatsbyImageSharpFluid
+					}
+				}
+			}
+		}
+	`);
 
-  return <Img fluid={data.ebook.childImageSharp.fluid} />
-}
+	return <Img fluid={data.classroom.childImageSharp.fluid} />;
+};
 
-export default Image
+export default Image;
