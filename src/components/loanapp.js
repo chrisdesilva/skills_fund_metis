@@ -153,7 +153,7 @@ const LoanApp = React.forwardRef((props, ref) => {
 				</form>
 			</div>
 			<div className="px-8 text-sm">
-				<p className="text-center mt-8 text-white">
+				{/* <p className="text-center mt-8 text-white">
 					If you are a cosigner, begin the addendum now by clicking{' '}
 					<a
 						className="underline"
@@ -163,9 +163,9 @@ const LoanApp = React.forwardRef((props, ref) => {
 					>
 						here
 					</a>.
-				</p>
+				</p> */}
 				<p
-					className="text-center text-white cursor-pointer font-bold underline"
+					className="text-center text-white cursor-pointer font-bold underline my-4"
 					onClick={() => showDisclaimers(!disclaimers)}
 				>
 					Disclaimers
