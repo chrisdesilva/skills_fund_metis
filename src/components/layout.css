@@ -37,6 +37,10 @@
 	height: 0;
 }
 
+#hide {
+	display: none;
+}
+
 .hide {
 	display: none;
 }
@@ -166,7 +170,6 @@
 .yotpo .yotpo-testimonials-btn {
 	background-color: #14a5a9 !important;
 }
-
 
 html {
 	font-family: 'Roboto Condensed', sans-serif;

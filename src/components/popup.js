@@ -43,7 +43,7 @@ const Popup = props => {
             },
             {
             "name": "school", 
-            "value": "Metis"
+            "value": `${props.schoolName}`
             }
         ],
         "context": {
@@ -65,6 +65,7 @@ const Popup = props => {
         .catch(error => console.log('error: ', error))
         showThankYou(true)
         setEmail('')
+        props.trackGA()
     }
 
     popupRef.current = isPopupVisible
@@ -88,13 +89,13 @@ const Popup = props => {
 
     return (
         <div className={isPopupVisible ? "popup" : "popup hidePopup"}>
-            {!thankYou && <div className="flex flex-col items-center justify-center"><p className="m-0">Get ready for upcoming start dates at Metis! </p><p className="m-0">Plan your funding with Skills Fund. We'll send you a step-by-step guide to paying for your program.</p></div>}
+            {!thankYou && <div className="flex flex-col items-center justify-center"><p className="m-0">Get ready for upcoming start dates at {props.schoolName}! </p><p className="m-0">Plan your funding with Skills Fund. We'll send you a step-by-step guide to paying for your program.</p></div>}
             <form className="popup_capture program-apply flex flex-col lg:flex-row m-0 items-center" onSubmit={handleSubmit}>
                 {!thankYou && <input className="border-2 rounded border-primary text-left p-2 w-64 text-black" type="email" name="email" placeholder="Enter your email address" onChange={handleChange} value={email} required />}
                 <div className="hidden">
                     <input type="text" name="Stakeholder Type" value="Student" readOnly/>
                     <input type="text" name="Lead Cycle" value="Lead Capture" readOnly/>
-                    <input type="text" name="School" value="Metis" readOnly/>
+                    <input type="text" name="School" value={props.schoolName} readOnly/>
                 </div>
                 {!thankYou && <input className="cursor-pointer my-2 lg:my-0 lg:ml-2 uppercase bg-primary p-3 w-40 rounded-full shadow-lg text-white" value="Send me the guide!" id="leadCaptureSubmitBtn" type="submit"/>}
                 <Collapse isOpened={thankYou}><p className="text-center m-0">Thank you! Your guide will be in your inbox soon!</p></Collapse>

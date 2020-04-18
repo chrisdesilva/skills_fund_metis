@@ -14,7 +14,7 @@ import LoanApp from './loanapp';
 import Reviews from './reviews';
 import DisabledApplication from './disabledApplication';
 import LeadCaptureForm from './leadcaptureform';
-import ApplyFooter from './applyfooter';
+import ApplyFooter from './applyFooter';
 import TermInfo from './terminfo';
 import FAQ from './faq';
 import Eligibility from './eligibility';
@@ -118,16 +118,17 @@ class Homepage extends React.Component {
 			<Layout>
 				<SEO title={this.props.schoolName} />
 				<Banner howItWorksOnClick={this.scrollToContent} applyNowOnClick={this.scrollToApply} />
-				<LeadContent schoolName={this.props.schoolName} />
+				{/* <LeadContent schoolName={this.props.schoolName} />
 				<ThreeSteps onClick={this.scrollToApply2} ref={this.threesteps} schoolName={this.props.schoolName} />
-				<LoanCalculator />
-				{/* <SlidingLoanCalculator /> */}
+				<LoanCalculator /> */}
+				<SlidingLoanCalculator location={this.props.location} />
 				{applicationsLive ? (
 					<LoanApp
 						ref={this.apply}
 						IP={this.props.IP}
 						pageUri={this.props.pageUri}
 						schoolName={this.props.schoolName}
+						location={this.props.location}
 					/>
 				) : (
 					<DisabledApplication
