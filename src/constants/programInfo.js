@@ -133,12 +133,12 @@ export const faq = {
 
   // max loan amounts by program for faq1
   loanRange: [
-    {
-      programName: "the Data Science program",
-      maxAmount: "$15,500",
-      col: true,
-      colAmount: "$10,000",
-    },
+    // {
+    //   programName: "the Data Science program",
+    //   maxAmount: "$15,500",
+    //   col: true,
+    //   colAmount: "$10,000",
+    // },
     {
       programName: "the Data Science Online program",
       maxAmount: "$17,000",
@@ -200,74 +200,74 @@ export const moreThanSixPrograms = false // set to true if there are 7 or more p
 
 export const programLoanInfo = [
   // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
-  {
-    name: "Data Science",
-    url: "https://my.skills.fund/application?lenderCode=SKMETA19",
-    loanInfo: {
-      // match loanInfo in first metro below
-      maxLoanAmt: 25500,
-      loanTerm36: true,
-      loanTerm60: true,
-      "Interest Only": {
-        // interest-only
-        k: 6,
-        apr36: 11.59,
-        apr60: 12.84,
-      },
-      "Immediate Repayment": null, // immediate repayment
-    },
-    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
-    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
-    showLoanTypes: false, // true if both IR and IO are available
-    loanTypes: ["Interest Only"],
-    locations: ["Metro 1", "Metro 2", "Metro 3"],
-    metros: [
-      // list in same order as locations array above
-      {
-        location: "Metro 1",
-        loanInfo: {
-          // // match loanInfo to Program 1 above
-          maxLoanAmt: 25500,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 6,
-            apr36: 11.59,
-            apr60: 12.84,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-      {
-        location: "Metro 2",
-        loanInfo: {
-          maxLoanAmt: 15545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 6,
-            apr36: 11.59,
-            apr60: 12.84,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-      {
-        location: "Metro 3",
-        loanInfo: {
-          maxLoanAmt: 20545,
-          loanTerm36: true,
-          loanTerm60: true,
-          "Interest Only": {
-            k: 6,
-            apr36: 11.59,
-            apr60: 12.84,
-          },
-          "Immediate Repayment": null,
-        },
-      },
-    ],
-  },
+  // {
+  //   name: "Data Science",
+  //   url: "https://my.skills.fund/application?lenderCode=SKMETA19",
+  //   loanInfo: {
+  //     // match loanInfo in first metro below
+  //     maxLoanAmt: 25500,
+  //     loanTerm36: true,
+  //     loanTerm60: true,
+  //     "Interest Only": {
+  //       // interest-only
+  //       k: 6,
+  //       apr36: 11.59,
+  //       apr60: 12.84,
+  //     },
+  //     "Immediate Repayment": null, // immediate repayment
+  //   },
+  //   defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+  //   showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+  //   showLoanTypes: false, // true if both IR and IO are available
+  //   loanTypes: ["Interest Only"],
+  //   locations: ["Metro 1", "Metro 2", "Metro 3"],
+  //   metros: [
+  //     // list in same order as locations array above
+  //     {
+  //       location: "Metro 1",
+  //       loanInfo: {
+  //         // // match loanInfo to Program 1 above
+  //         maxLoanAmt: 25500,
+  //         loanTerm36: true,
+  //         loanTerm60: true,
+  //         "Interest Only": {
+  //           k: 6,
+  //           apr36: 11.59,
+  //           apr60: 12.84,
+  //         },
+  //         "Immediate Repayment": null,
+  //       },
+  //     },
+  //     {
+  //       location: "Metro 2",
+  //       loanInfo: {
+  //         maxLoanAmt: 15545,
+  //         loanTerm36: true,
+  //         loanTerm60: true,
+  //         "Interest Only": {
+  //           k: 6,
+  //           apr36: 11.59,
+  //           apr60: 12.84,
+  //         },
+  //         "Immediate Repayment": null,
+  //       },
+  //     },
+  //     {
+  //       location: "Metro 3",
+  //       loanInfo: {
+  //         maxLoanAmt: 20545,
+  //         loanTerm36: true,
+  //         loanTerm60: true,
+  //         "Interest Only": {
+  //           k: 6,
+  //           apr36: 11.59,
+  //           apr60: 12.84,
+  //         },
+  //         "Immediate Repayment": null,
+  //       },
+  //     },
+  //   ],
+  // },
   {
     name: "Data Science Online",
     url: "https://my.skills.fund/application?lenderCode=SKMETAODS19",
