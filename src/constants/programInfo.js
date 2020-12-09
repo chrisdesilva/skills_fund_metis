@@ -89,10 +89,10 @@ export const previewText = {
       body:
         "Make low interest-only payments while you study and for three months after completing your program.",
     },
-    // {
-    //   heading: "Immediate Repayment",
-    //   body: "Start paying your loan back one month after your program begins.",
-    // },
+    {
+      heading: "Immediate Repayment",
+      body: "Start paying your loan back one month after your program begins.",
+    },
     // {
     //   heading: "36-Month Loan",
     //   // body:
@@ -114,9 +114,9 @@ export const faq = {
   costOfLivingPrograms: "", // leave as empty string is cost of living availability is the same across all programs
   multCostOfLivingPrograms: false, // true if costOfLivingPrograms string has more than one program
   interestOnly: true, // true if interest-only payments are an option
-  immediateRepayment: false, // true if immediate repayment is an option
+  immediateRepayment: true, // true if immediate repayment is an option
   multipleLoanLengths: true, // true if 36 and 60 month options are both available
-  multipleLoanTypes: false, // true if both IR and IO are available
+  multipleLoanTypes: true, // true if both IR and IO are available
   multiPrograms: true, // only true if there are multiple programs
   onlinePrograms: true, // true if at least one program is remote/online
   schoolHQState: "WA",
@@ -133,16 +133,77 @@ export const faq = {
 
   // max loan amounts by program for faq1
   loanRange: [
-    // {
-    //   programName: "the Data Science program",
-    //   maxAmount: "$15,500",
-    //   col: true,
-    //   colAmount: "$10,000",
-    // },
     {
       programName: "the Data Science Online program",
       maxAmount: "$17,000",
       col: true,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Data Analytics Bootcamp program",
+      maxAmount: "$9,000",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Data Science & Engineering Bootcamp program",
+      maxAmount: "$14,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Data Science Bootcamp program",
+      maxAmount: "$14,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Data Science & Machine Learning Bootcamp program",
+      maxAmount: "$18,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Exploratory Data Analysis program",
+      maxAmount: "$3,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Linear Regression & Web Scraping program",
+      maxAmount: "$3,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Business Fundamental For Data Practitioners program",
+      maxAmount: "$3,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Introduction to Data Engineering program",
+      maxAmount: "$3,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Machine Learning Classification program",
+      maxAmount: "$3,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName:
+        "the Natural Language Processing & Unsupervised Learning program",
+      maxAmount: "$3,500",
+      col: false,
+      colAmount: "$10,000",
+    },
+    {
+      programName: "the Deep Learning Fundamentals program",
+      maxAmount: "$3,500",
+      col: false,
       colAmount: "$10,000",
     },
   ],
@@ -200,74 +261,6 @@ export const moreThanSixPrograms = false // set to true if there are 7 or more p
 
 export const programLoanInfo = [
   // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
-  // {
-  //   name: "Data Science",
-  //   url: "https://my.skills.fund/application?lenderCode=SKMETA19",
-  //   loanInfo: {
-  //     // match loanInfo in first metro below
-  //     maxLoanAmt: 25500,
-  //     loanTerm36: true,
-  //     loanTerm60: true,
-  //     "Interest Only": {
-  //       // interest-only
-  //       k: 6,
-  //       apr36: 11.59,
-  //       apr60: 12.84,
-  //     },
-  //     "Immediate Repayment": null, // immediate repayment
-  //   },
-  //   defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
-  //   showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
-  //   showLoanTypes: false, // true if both IR and IO are available
-  //   loanTypes: ["Interest Only"],
-  //   locations: ["Metro 1", "Metro 2", "Metro 3"],
-  //   metros: [
-  //     // list in same order as locations array above
-  //     {
-  //       location: "Metro 1",
-  //       loanInfo: {
-  //         // // match loanInfo to Program 1 above
-  //         maxLoanAmt: 25500,
-  //         loanTerm36: true,
-  //         loanTerm60: true,
-  //         "Interest Only": {
-  //           k: 6,
-  //           apr36: 11.59,
-  //           apr60: 12.84,
-  //         },
-  //         "Immediate Repayment": null,
-  //       },
-  //     },
-  //     {
-  //       location: "Metro 2",
-  //       loanInfo: {
-  //         maxLoanAmt: 15545,
-  //         loanTerm36: true,
-  //         loanTerm60: true,
-  //         "Interest Only": {
-  //           k: 6,
-  //           apr36: 11.59,
-  //           apr60: 12.84,
-  //         },
-  //         "Immediate Repayment": null,
-  //       },
-  //     },
-  //     {
-  //       location: "Metro 3",
-  //       loanInfo: {
-  //         maxLoanAmt: 20545,
-  //         loanTerm36: true,
-  //         loanTerm60: true,
-  //         "Interest Only": {
-  //           k: 6,
-  //           apr36: 11.59,
-  //           apr60: 12.84,
-  //         },
-  //         "Immediate Repayment": null,
-  //       },
-  //     },
-  //   ],
-  // },
   {
     name: "Data Science Online",
     url: "https://my.skills.fund/application?lenderCode=SKMETAODS19",
@@ -320,84 +313,578 @@ export const programLoanInfo = [
       },
     ],
   },
-  // {
-  // 	name: 'Program 3',
-  // 	url: 'https://my.skills.fund/application?lenderCode=LENDERCODE3',
-  // 	loanInfo: {
-  // 		// match loanInfo in first metro below
-  // 		maxLoanAmt: 15995,
-  // 		loanTerm36: true,
-  // 		loanTerm60: true,
-  // 		"Interest Only": {
-  // 			k: 6,
-  // 			apr36: 11.59,
-  // 			apr60: 12.84
-  // 		},
-  // 		"Immediate Repayment": {
-  // 			apr36: 11.25,
-  // 			apr60: 12.55
-  // 		}
-  // 	},
-  // 	defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
-  // 	showMetros: false,
-  // 	showLoanTypes: false,
-  // loanTypes: ["Interest Only"],
-  // locations: [ 'Metro A', 'Metro B', 'Metro C' ],
-  // 	metros: [
-  // 		{
-  // 			location: 'Metro A',
-  // 			loanInfo: {
-  // 				// match loanInfo to Program 3 loanInfo above
-  // 				maxLoanAmt: 15995,
-  // 				loanTerm36: true,
-  // 				loanTerm60: true,
-  // 				"Interest Only": {
-  // 					k: 6,
-  // 					apr36: 11.59,
-  // 					apr60: 12.84
-  // 				},
-  // 				"Immediate Repayment": {
-  // 					apr36: 11.25,
-  // 					apr60: 12.55
-  // 				}
-  // 			}
-  // 		},
-  // 		{
-  // 			location: 'Metro B',
-  // 			loanInfo: {
-  // 				maxLoanAmt: 15545,
-  // 				loanTerm36: true,
-  // 				loanTerm60: true,
-  // 				"Interest Only": {
-  // 					k: 6,
-  // 					apr36: 11.59,
-  // 					apr60: 12.84
-  // 				},
-  // 				"Immediate Repayment": {
-  // 					apr36: 11.25,
-  // 					apr60: 12.55
-  // 				}
-  // 			}
-  // 		},
-  // 		{
-  // 			location: 'Metro C',
-  // 			loanInfo: {
-  // 				maxLoanAmt: 20545,
-  // 				loanTerm36: true,
-  // 				loanTerm60: true,
-  // 				"Interest Only": {
-  // 					k: 6,
-  // 					apr36: 11.59,
-  // 					apr60: 12.84
-  // 				},
-  // 				"Immediate Repayment": {
-  // 					apr36: 11.25,
-  // 					apr60: 12.55
-  // 				}
-  // 			}
-  // 		}
-  // 	]
-  // }
+  {
+    name: "Data Analytics",
+    url: "https://my.skills.fund/application?lenderCode=SKMETADAB20",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Data Science & Engineering",
+    url: "https://my.skills.fund/application?lenderCode=SKMETADSEB2",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Data Science",
+    url: "https://my.skills.fund/application?lenderCode=SKMETADSB20",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Data Science & Machine Learning",
+    url: "https://my.skills.fund/application?lenderCode=SKMETADSMLB",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Exploratory Data Analysis",
+    url: "https://my.skills.fund/application?lenderCode=SKMETAEDA20",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Linear Regression & Web Scraping",
+    url: "https://my.skills.fund/application?lenderCode=SKMETALRWS2",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Business Fundamentals for Data Practitioners",
+    url: "https://my.skills.fund/application?lenderCode=SKMETABFFDP",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Introduction to Data Engineering",
+    url: "https://my.skills.fund/application?lenderCode=SKMETAIDE20",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Machine Learning Classification",
+    url: "https://my.skills.fund/application?lenderCode=SKMETAMLC20",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Natural Language Processing & Unsupervised Learning",
+    url: "https://my.skills.fund/application?lenderCode=SKMETANLPUL",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Deep Learning Fundamentals",
+    url: "https://my.skills.fund/application?lenderCode=SKMETADLF20",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 27000,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        k: 6,
+        apr36: 11.59,
+        apr60: 12.84,
+      },
+      "Immediate Repayment": null,
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false,
+    showLoanTypes: false,
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2"],
+    metros: [
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // match loanInfo to Program 2 loanInfo above
+          maxLoanAmt: 27000,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+      {
+        location: "Metro 2",
+        loanInfo: {
+          maxLoanAmt: 15545,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 6,
+            apr36: 11.59,
+            apr60: 12.84,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
 ]
 
 // ***** BEGIN LOAN CALC TEXT INFO *****
